@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../Css/home.css">
+</head>
+
+<body>
+
+
+    <nav class="navbar"><!-- Barra de navegación -->
+
+        <ul class="horizontal">
+            <!-- Elementos de la navbar, recordar agregar los href y los target de forma posterior -->
+
+            <li class="navMenuLink">
+                <a class="navContent" title="NOSOTROS">NOSOTROS</a>
+            </li>
+
+
+            <li class="navMenuLink">
+                <a class="navContent" title="LOCALES RETAIL">LOCALES RETAIL</a>
+            </li>
+
+            <li class="navMenuLink">
+                <a class="navContent" title="PROYECTOS NUEVOS">PROYECTOS </a>
+            </li>
+
+
+
+            <li class="navMenuLink">
+                <a class="navContent" title="SERVICIOS">SERVICIOS</a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <section class="section-home"
+        style="background:linear-gradient(90deg, rgba(166, 166, 166, 1.000000) 0%, rgba(255, 255, 255, 1.000000) 100%);transform:scale(1, 1);width:100%;height:100%;overflow:hidden;position:relative;">
+
+        <div class="home-title">
+
+            <div class="homeContent">
+                <div class="contentImg">
+                    <img src="../Img/c-mvt_logo.png" loading="lazy" class="homeImg">
+                    <!-- El objetivo del encampsulamiento es hacer la imagen adaptable a la mayor cantidad de pantallas -->
+                </div>
+                <div class="contentImgB">
+                    <img class="principalImg" src="../Img/image_home.jpg"
+                        srcset="../Img/alt_home_image.jpg 980w, ../Img/image_home.jpg 1959w" sizes="(max-width: 375px) 91.46666667vw, 
+            (min-width: 375.05px) and (max-width: 480px) 93.33333333vw, 
+            (min-width: 480.05px) and (max-width: 768px) 91.66666667vw, 
+            (min-width: 768.05px) and (max-width: 1024px) 93.75vw, 
+            (min-width: 1024.05px) 85.98460904vw">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section-about">
+        <div class="ImageAboutContainer">
+            <img src="../Img/About_image.jpg" class="ImageAbout" sizes="(max-width: 375px) 91.46666667vw, 
+            (min-width: 375.05px) and (max-width: 480px) 93.33333333vw, 
+            (min-width: 480.05px) and (max-width: 768px) 91.66666667vw, 
+            (min-width: 768.05px) and (max-width: 1024px) 93.75vw, 
+            (min-width: 1024.05px) 85.98460904vw" class="ImageAbout">
+        </div>
+
+        <div class="TitleAboutContainer"> <span class="TitleAbout">SOBRE NOSOTROS</span></div>
+
+        <div class="TextAboutContainer"><span class="TextAbout">
+
+                Nuestro equipo se dedica a proporcionar <br> soluciones integrales en diseño,<br> construcción y
+                mantenimiento
+                para diversos sectores, incluyendo hogares,<br> oficinas, retail, condominios, centros educativos y
+                otros.
+
+
+            </span></div>
+
+
+
+
+    </section>
+    <section class="section-build" style="background: rgba(166, 166, 166, 1.000000);transform:scale(1, 1);width:100%;height:100%;overflow:hidden;position:relative;">
+       
+        <div class="gallery-title">
+            Galerías de Proyectos
+        </div>
+
+        <div class="image-container">
+            <img src="../Img/Local_metro.jpg" class="gallery-image">
+            <div class="image-text">HAPPYLAND </div>
+        </div>
+    
+        <div class="image-container">
+            <img src="../Img/Local_metro.jpg" class="gallery-image">
+            <div class="image-text"> EMPRESA X</div>
+        </div>
+    
+        <div class="image-container">
+            <img src="../Img/Local_metro.jpg" class="gallery-image">
+            <div class="image-text">EMPRESA Y</div>
+        </div>
+    </section>
+    
+
+    </section>
+    <section class="section-retail">
+
+    </section>
+<!-- Ultima seccion, se presentaran las empresas asociadas con las constructora, se estiman alrederor de 9 empresas a persentar. -->
+    <section class="section-contact">
+        <footer class="footer">
+            <div class="footer-container">
+                <!-- Logo  -->
+                <div class="footer-logo">
+                    <img src="../Img/c-mvt_logo.png" alt="Logo de la Empresa" />
+                </div>
+
+                <!-- Información de contacto -->
+                <div class="footer-contact">
+                    <p><strong>Contacto electrónico</strong></p>
+                    <p>Felizondo@c-mvt.com</p>
+                    <p>Paulo.rojas@c-mvt.com</p>
+                    <p><strong>Teléfono</strong></p>
+                    <p> +56949557975 </p>
+                </div>
+
+                <!-- Dirección, recordar que es necesario eliminar la direccion fisica Y/O modificarla -->
+                <div class="footer-address">
+                    <p><strong>Dirección</strong></p>
+                    <p>Ahumada 11 oficina 309, Santiago </p>
+                    <p>Region metropolitana, Chile</p>
+                </div>
+            </div>
+        </footer>
+
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll('.Galery');
+
+            images.forEach((image) => {
+                // Crear el div con el texto de hover
+                const hoverText = document.createElement('div');
+                hoverText.classList.add('hover-text');
+                hoverText.textContent = 'Descripción de la Imagen'; // Cambia el texto aquí
+
+                // Asegúrate de que el texto se agregue sobre la imagen
+                image.style.position = 'relative'; // Importante para que el texto esté sobre la imagen
+                image.appendChild(hoverText);
+
+                // Mostrar el texto cuando se hace hover
+                image.addEventListener('mouseenter', () => {
+                    hoverText.style.opacity = '1';
+                });
+
+                // Ocultar el texto cuando el mouse se aleja
+                image.addEventListener('mouseleave', () => {
+                    hoverText.style.opacity = '0';
+                });
+            });
+        });        
+    </script>
+</body>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
