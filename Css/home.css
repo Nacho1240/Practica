@@ -1,125 +1,140 @@
-.navbar {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Navbar horizontal */
+.navbar {
     position: sticky;
-    top: 0px;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    top: 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background-color: #ffffff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-    z-index: 1;
-    text-overflow: ellipsis;
+    z-index: 2;
     height: 50px;
-    box-sizing: border-box;
-}
-
-@font-face {
-    font-family: 'YAEnXHTFXhg-0';
-    src: url('../fonts/fcd349140b0dbb75604bd51fdc02e2e8.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 100 500; /* Usar un rango si aplica */
-}
-
-.homeContent {
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    display: flex;
-    overflow: hidden;
-    left: -6px;
-
 }
 
 .horizontal {
+    list-style: none;
     display: flex;
-    margin: 0px;
-    padding: 0px;
+    justify-content: space-around;
     visibility: visible;
-
+    margin: 0;
+    padding: 0;
 }
 
 .navMenuLink {
-    color: hsla(210, 26%, 7%, 0.7);
     display: flex;
     align-items: center;
     list-style-type: none;
     white-space: nowrap;
-}
-
-div {
-    display: grid;
-    /* min-height: 100dvh;  desactivado debido a problemas de compatibilidad con el resto de la pagina, es necesario reevaluar su uso en el footer */
-    grid-template-rows: auto 1fr auto;
-
-}
-
-section {
-    display: grid;
-    min-height: 100dvh;
-    grid-template-rows: auto 1fr auto;
-
-}
-
-.navContent {
-    display: inline-block;
-    text-decoration-line: none;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    white-space: nowrap;
-    padding: 10px 16px;
-    margin-right: auto;
     color: hsla(210, 26%, 7%, 0.7);
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-body {
-    padding: 0;
-    margin: 0;
-}
-
-.homeContent {
-
-    display: flex;
-    /* Usa flexbox */
-    flex-direction: column;
-    /* Alinea elementos verticalmente */
-    justify-content: center;
-    /* Centra verticalmente */
-    align-items: flex-start;
-    /* Alinea los elementos hacia la izquierda */
-    width: 100%;
-    /* Ajusta al contenedor */
-    height: auto;
-    /* Permite que se adapte al contenido */
-    position: relative;
-    /* Permite el uso de `left` */
-    padding: 1rem;
-    /* Agrega un poco de espacio interno */
-    overflow: hidden;
-    /* Oculta cualquier desbordamiento */
-    transform: translateX(-10px);
-    /* Mueve ligeramente a la izquierda */
-    background-color: transparent;
-    /* Personaliza si es necesario */
-
-}
-
-.homeImg {
-
-    width: 100%;
-    /* La imagen se ajusta al ancho del contenedor */
-    max-width: 100%;
-    /* Limita el ancho máximo para que no desborde */
-    height: auto;
-    /* Mantiene la proporción de la imagen */
-    object-fit: contain;
-    /* Ajusta la imagen dentro de su contenedor */
+.navMenuLink a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
     display: block;
-    /* Elimina espacio adicional causado por el modo inline */
+}
 
+/* Menú lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: left 0.3s;
+    padding-top: 50px;
+    z-index: 3;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+/* Botón menú hamburguesa */
+.menu-btn {
+    display: none;
+    position: fixed;
+    background-color: #333;
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+#menu-btn-container {
+    position: sticky;
+    top: 0;
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #333;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    z-index: 4;
+    height: 50px;
+    visibility: hidden;
+}
+
+#menu-btn-container.horizontal-bar-active {
+    display: flex;
+    visibility: visible;
+}
+
+/* Media Query */
+@media screen and (max-width: 600px) {
+    .navbar {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* Home Content */
+.homeContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100vw;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Imagen principal */
+.homeImg {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .principalImg {
@@ -130,45 +145,33 @@ body {
     object-position: 50% 35.98%;
     padding-top: 5dvh;
     transition: 0.5s;
+}
 
-
+.contentImg, .contentImgB {
+    flex-grow: 1;
 }
 
 .contentImg {
     display: inline-block;
     width: fit-content;
     height: fit-content;
-
-
-
 }
 
 .contentImgB {
     width: 100%;
-    /* Ancho del contenedor */
     height: 375px;
-    /* Altura fija o ajustable */
     overflow: hidden;
-    /* Esconde partes de la imagen que se salen del contenedor */
     position: relative;
-    /* Asegura que el contenido se posicione dentro del contenedor */
-
-
-
-
 }
 
-/* Estilo general del footer */
+/* Footer */
 .footer {
     background-color: #f4f4f4;
-    /* Fondo claro y profesional */
     color: #333;
-    /* Texto oscuro */
     padding: 40px 20px;
     font-family: 'Arial', sans-serif;
     font-size: 14px;
     border-top: 1px solid #ccc;
-    /* Línea separadora */
 }
 
 .footer-container {
@@ -181,14 +184,11 @@ body {
     gap: 20px;
 }
 
-/* Logo */
 .footer-logo img {
     max-width: 120px;
-    /* Tamaño del logo */
     height: auto;
 }
 
-/* Información de contacto */
 .footer-contact,
 .footer-address {
     flex: 1;
@@ -206,7 +206,6 @@ body {
     font-size: 16px;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
@@ -223,16 +222,7 @@ body {
     }
 }
 
-.section-contact {
-    min-height: 20dvh;
-}
-
-
-
-
-/* Galeria de fotos en la seccion build */
-
-/* Estructura de la galería */
+/* Galería */
 .section-build {
     display: flex;
     justify-content: space-between;
@@ -245,16 +235,14 @@ body {
     flex-wrap: wrap;
     min-height: 80dvh;
 }
+
 .gallery-title {
-    font-size: 2rem; /* Tamaño del texto */
+    font-size: 3rem;
     font-weight: bold;
     text-align: center;
-    color: #fff; /* Color del texto */
-    font-family: YAEnXHTFXhg-0; /* Fuente personalizada */
-
-    opacity: 1.0;
+    color: #fff;
+    font-family: YAEnXHTFXhg-0;
     display: flex;
-    box-sizing: border-box;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
@@ -262,76 +250,61 @@ body {
     padding-top: 1%;
 }
 
-/* Contenedor de cada imagen */
 .image-container {
     position: relative;
-    width: 30%; /* 3 imágenes en fila */
-    height: 100%; /* Altura fija para las imágenes */
+    width: 30%;
+    height: 100%;
     overflow: hidden;
     border-radius: 10px;
 }
 
-/* Estilo de las imágenes */
 .gallery-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease, filter 0.3s ease; /* Efecto de acercamiento */
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Efecto al hacer hover sobre la imagen (acercamiento y aumento de contraste) */
 .image-container:hover .gallery-image {
-    transform: scale(1.1); /* Aumento de tamaño */
-    filter: contrast(120%); /* Aumento de contraste */
+    transform: scale(1.1);
+    filter: contrast(120%);
 }
 
-/* Texto en la parte inferior de la imagen */
 .image-text {
     position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro con transparencia */
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
-    display: none; /* Texto oculto por defecto */
+    display: none;
 }
 
-/* Mostrar el texto al hacer hover */
 .image-container:hover .image-text {
     display: block;
 }
 
-/* Media Queries para que la galería sea responsiva */
 @media (max-width: 768px) {
     .image-container {
-        width: 45%; /* 2 imágenes por fila en pantallas medianas */
+        width: 45%;
     }
 }
 
 @media (max-width: 480px) {
     .image-container {
-        width: 100%; /* 1 imagen por fila en pantallas pequeñas */
+        width: 100%;
     }
 }
 
-
-
-
-/* Css de la seccion ABOUT (la segunda seccion) */
+/* Sección ABOUT */
 .ImageAboutContainer {
     width: 100%;
-    /* Ancho del contenedor */
     height: 375px;
-    /* Altura fija o ajustable */
     overflow: hidden;
-    /* Esconde partes de la imagen que se salen del contenedor */
     position: relative;
-    /* Asegura que el contenido se posicione dentro del contenedor */
-
-
 }
 
 .ImageAbout {
@@ -344,18 +317,14 @@ body {
     transition: 0.5s;
 }
 
-
 .TitleAboutContainer {
-    opacity: 1.0;
     display: flex;
-    box-sizing: border-box;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
     height: fit-content;
     padding-top: 5%;
 }
-
 
 .TitleAbout {
     color: #4e5152;
@@ -368,28 +337,180 @@ body {
 }
 
 .TextAboutContainer {
-    opacity: 1.0;
-    display: flex; /* Usamos Flexbox */
-    flex-direction: column; /* Dirección vertical */
-    justify-content: flex-end; /* Alinea hacia abajo */
-    align-items: center; /* Centra horizontalmente */
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     width: 100%;
     height: 100%;
-    padding: 0; /* Opcional: Ajusta el espacio si es necesario */
-    margin: 0;
 }
 
 .TextAbout {
     color: #4e5152;
     font-family: YAEnXHTFXhg-0;
-    line-height: 1.4; /* Espaciado entre las líneas */
-    text-align: center; /* Centra el texto */
-    text-transform: none;
-    letter-spacing: -0.02em; /* Espaciado entre letras */
-    margin: 0;
-    font-weight: 900; /* Grosor del texto */
-    font-size: 1.5em; /* Tamaño del texto ajustable */
-    padding-bottom: 10%;
+    line-height: 1.4;
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.5em;
+    letter-spacing: -0.02em;
+    padding-bottom: 20dvh;
 }
 
+/* Secciones específicas */
+.section-home {
+    min-height: 70dvh;
+}
+
+.section-contact,
+.section-retail {
+    min-height: 20dvh;
+}
+
+/* Layout principal */
+body {
+    padding: 0;
+    margin: 0;
+}
+
+div, section {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+
+
+.slider {
+    width: 100%;
+   
+    margin: 40px auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .slider div {
+    text-align: center;
+    padding: 20px;
+    background: #ffffff;
+   
+    font-size: 14px;
+  }
+  
+  @media (max-width: 480px) {
+    .slide img {
+      max-width: 100%;
+      max-height: 80px;
+    }
+    }
+
+    .slider-container {
+        position: relative;
+        max-width: 600px;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+  
+    
+  
+      .slide {
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        padding: 20px;
+      }
+  
+      .slide img {
+        max-width: 80%;
+        max-height: 120px;
+        object-fit: contain;
+      }
+
+      .slider-container h1 {
+        padding-top: 7%;
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #333;
+        font-weight: 600;
+        font-family: "Segoe UI", sans-serif;
+        letter-spacing: 1px;
+      }
+      .slider-container h1::after {
+        content: "";
+        display: block;
+        width: 120px;
+        height: 3px;
+        background-color: #4e5152; 
+        margin: 10px auto 0;
+        border-radius: 2px;
+      }
+
+        /* Slider del staff */
+      .staff-slider-container {
+        text-align: center;
+        padding: 20px;
+      }
+      
+      .staff-title {
+        font-size: 2rem;
+        font-weight: bold;
+        padding-bottom: 7%;
+      }
+      .staff-slider-container h1::after {
+        content: "";
+        display: block;
+        width: 120px;
+        height: 3px;
+        background-color: #4e5152; 
+        margin: 10px auto 0;
+        border-radius: 2px;
+      }
+      
+      .staff-slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1.5rem;
+        padding-bottom: 10px;
+      }
+      
+      .staff-slide {
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+        width: 200px;
+        text-align: center;
+        border-radius: 10px;
+        background: #f7f7f7;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        padding: 10px;
+      }
+      
+      .staff-slide img {
+        width: 100%;
+        height: auto;
+        max-height: 300px; /* o el alto máximo que tú quieras */
+        object-fit: contain;
+        border-radius: 8px;
+      }
+      
+      
+      .staff-name {
+        margin-top: 10px;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      
+      .staff-name span {
+        display: block;
+        font-weight: normal;
+        font-size: 0.85rem;
+        color: #666;
+      }
+      
+            
+  
+  

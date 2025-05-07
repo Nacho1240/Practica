@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Responsiva</title>
+    <link rel="stylesheet" href="../Css/Galery.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="javascript:history.back()" class="back-arrow">Regresar</a>
+    </nav>
+
+    <div class="container">
+        <div class="leftGallery" id="leftGallery"></div>
+        <div class="rightGallery" id="rightGallery"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+   
+    
+
+
+
+        const images = [];
+
+        for (let i = 234339; i <= 234482; i++) {
+            images.push({ src: `../imagenes/${i}.jpg` });
+        }
+
+        const leftGallery = document.getElementById('leftGallery');
+        const rightGallery = document.getElementById('rightGallery');
+
+        images.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image.src;
+
+
+            // Crear un contenedor para la imagen
+            const container = document.createElement('div');
+            container.classList.add('image-container');
+            container.appendChild(imgElement);
+
+            // Verificar la orientación de la imagen
+            imgElement.onload = () => {
+                if (imgElement.width > imgElement.height) {
+                    // Si la imagen es horizontal, se agrega a la galería de la derecha
+                    rightGallery.appendChild(container);
+                } else {
+                    // Si la imagen es vertical, se agrega a la galería de la izquierda
+                    leftGallery.appendChild(container);
+                }
+
+                // Agregar el evento de clic para abrir el modal cuando se hace clic en la imagen
+                imgElement.onclick = function () {
+                    const modal = document.getElementById("myModal");
+                    const modalImg = document.getElementById("img01");
+                    const captionText = document.getElementById("caption");
+                    modal.style.display = "block"; // Mostrar el modal
+                    modalImg.src = this.src; // Poner la imagen clickeada en el modal
+                    captionText.innerHTML = this.alt; // Mostrar el texto alternativo en el modal
+                };
+            };
+        });
+
+        // Obtener el botón de cerrar
+        var span = document.getElementsByClassName("close")[0];
+
+        // Cerrar el modal cuando se hace clic en el botón de cerrar
+        span.onclick = function () {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        };
+
+        // Cerrar el modal si se hace clic fuera de la imagen
+        var modal = document.getElementById("myModal");
+        modal.onclick = function (event) {
+            // Si el clic no fue sobre la imagen o el botón de cerrar
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        // Cerrar el modal si se presiona la tecla ESC
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                var modal = document.getElementById("myModal");
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
