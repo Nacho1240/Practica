@@ -183,7 +183,7 @@
 
 .footer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
@@ -194,12 +194,14 @@
 .footer-logo img {
     max-width: 120px;
     height: auto;
+  
 }
 
 .footer-contact,
 .footer-address {
     flex: 1;
     min-width: 200px;
+    align-items: start;
 }
 
 .footer-contact p,
@@ -221,13 +223,31 @@
 
     .footer-contact,
     .footer-address {
-        text-align: center;
+        text-align: start;
     }
 
     .footer-logo img {
         margin-bottom: 20px;
     }
 }
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-social img {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease;
+}
+
+.footer-social img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 
 /* Galería */
 .section-build {
@@ -337,28 +357,32 @@
     color: #4e5152;
     font-family: YAEnXHTFXhg-0;
     line-height: 1.16666667em;
-    text-align: center;
+    text-align: start;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 2.5em;
+    padding-left: 10%;
+    padding-right: 3%;
 }
 
 .TextAboutContainer {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
+    align-items: start;
     width: 100%;
     height: 100%;
     padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 3%;
 }
 
 .TextAbout {
     color: #4e5152;
-    font-family: YAEnXHTFXhg-0;
+    font-family:serif;
     line-height: 1.4;
-    text-align: center;
-    font-weight: 900;
+    text-align:start;
+    font-weight: 0;
     font-size: 1.5em;
     letter-spacing: -0.02em;
     padding-bottom: 20dvh;
@@ -415,6 +439,7 @@ div, section {
         position: relative;
         max-width: 600px;
         margin: auto;
+       
         overflow: hidden;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
