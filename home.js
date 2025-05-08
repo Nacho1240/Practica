@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Función para verificar el espacio de la barra horizontal
+    // Función para verificar el espacio de la barra horizontal, esta funcionando bien
     function checkHorizontalBarSpace() {
         if (horizontalBar.scrollWidth > horizontalBar.clientWidth || horizontalBar.offsetWidth <= 600) {
-            container.classList.add('horizontal-bar-active'); // Activar contenedor cuando barra horizontal está activa o cuando el ancho es menor a 600px
+            container.classList.add('horizontal-bar-active'); 
         } else {
             container.classList.remove('horizontal-bar-active');
         }
@@ -27,13 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Comprobar cada vez que el tamaño de la ventana cambie
     window.addEventListener('resize', checkHorizontalBarSpace);
 
-    // Alternar el estado de la barra lateral (sidebar)
-    menuButton.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-    });
 
-    // Alternar la visibilidad de la barra lateral (sidebar) cuando se haga clic en el contenedor
-    container.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-    });
+
+
 });

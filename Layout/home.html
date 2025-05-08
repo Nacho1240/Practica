@@ -8,94 +8,114 @@
   <link rel="stylesheet" href="../Css/home.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
-
+  <link rel="icon" href="../Img/c-mvt_logo.png" type="image/png" sizes="16x16" />
 </head>
 
 <body>
-  <nav class="navbar" id="navbar">
-    <ul class="horizontal">
-      <li class="navMenuLink"><a class="navContent" title="NOSOTROS">NOSOTROS</a></li>
-      <li class="navMenuLink"><a class="navContent" title="LOCALES RETAIL">LOCALES RETAIL</a></li>
-      <li class="navMenuLink"><a class="navContent" title="PROYECTOS NUEVOS">PROYECTOS</a></li>
-      <li class="navMenuLink"><a class="navContent" title="SERVICIOS">SERVICIOS</a></li>
-    </ul>
-  </nav>
 
   <div class="menu-btn-container" id="menu-btn-container">
     <button class="menu-btn" id="menuButton">☰</button>
   </div>
-
-  <nav class="sidebar" id="sidebar">
-    <ul>
-      <li><a href="#">NOSOTROS</a></li>
-      <li><a href="#">LOCALES RETAIL</a></li>
-      <li><a href="#">PROYECTOS</a></li>
-      <li><a href="#">SERVICIOS</a></li>
+  <nav class="navbar" id="navbar">
+    <ul class="horizontal">
+      <li class="navMenuLink"><a class="navContent" title="VISION" href="#section-vision">VISION</a></li>
+      <li class="navMenuLink"><a class="navContent" title="NOSOTROS" href="#section-about">NOSOTROS</a></li>
+      <li class="navMenuLink"><a class="navContent" title="GALERIA" href="#section-gallery">GALERIA</a></li>
+      <li class="navMenuLink"><a class="navContent" title="SERVICIOS" href="#section-contact">CONTACTO</a></li>
     </ul>
   </nav>
-
-  <section class="section-home" style="background:linear-gradient(90deg, rgba(166, 166, 166, 1.000000) 0%, rgba(255, 255, 255, 1.000000) 100%); width:100%; height:100%; overflow:hidden; position:relative;">
+  
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#section-vision">VISION</a></li>
+      <li><a href="#section-about">NOSOTROS</a></li>
+      <li><a href="#section-gallery">GALERIA</a></li>
+      <li><a href="#section-contact">CONTACTO</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Sección de HOME -->
+  <section class="section-home" id="section-home" style="background:linear-gradient(90deg, rgba(166, 166, 166, 1.000000) 0%, rgba(255, 255, 255, 1.000000) 100%); width:100%; height:100%; overflow:hidden; position:relative;">
     <div class="homeContent">
       <div class="contentImg">
         <img src="../Img/c-mvt_logo.png" loading="lazy" class="homeImg" />
       </div>
       <div class="contentImgB">
-        <img class="principalImg" src="../Img/image_home.jpg" srcset="../Img/alt_home_image.jpg 980w, ../Img/image_home.jpg 1959w" sizes="(max-width: 375px) 91.46666667vw, (min-width: 375.05px) and (max-width: 480px) 93.33333333vw, (min-width: 480.05px) and (max-width: 768px) 91.66666667vw, (min-width: 768.05px) and (max-width: 1024px) 93.75vw, (min-width: 1024.05px) 85.98460904vw" />
+        <img class="principalImg" src="../Img/image_home.jpg"
+          srcset="../Img/alt_home_image.jpg 980w, ../Img/image_home.jpg 1959w"
+          sizes="(max-width: 375px) 91.46666667vw, (min-width: 375.05px) and (max-width: 480px) 93.33333333vw, (min-width: 480.05px) and (max-width: 768px) 91.66666667vw, (min-width: 768.05px) and (max-width: 1024px) 93.75vw, (min-width: 1024.05px) 85.98460904vw" />
       </div>
     </div>
   </section>
-
-  <section class="section-about">
+  
+  <!-- Sección de NOSOTROS -->
+  <section class="section-about" id="section-about">
     <div class="ImageAboutContainer">
-      <img src="../Img/About_image.jpg" class="ImageAbout" sizes="(max-width: 375px) 91.46666667vw, (min-width: 375.05px) and (max-width: 480px) 93.33333333vw, (min-width: 480.05px) and (max-width: 768px) 91.66666667vw, (min-width: 768.05px) and (max-width: 1024px) 93.75vw, (min-width: 1024.05px) 85.98460904vw" />
+      <img src="../Img/About_image.jpg" class="ImageAbout"
+        sizes="(max-width: 375px) 91.46666667vw, (min-width: 375.05px) and (max-width: 480px) 93.33333333vw, (min-width: 480.05px) and (max-width: 768px) 91.66666667vw, (min-width: 768.05px) and (max-width: 1024px) 93.75vw, (min-width: 1024.05px) 85.98460904vw" />
     </div>
     <div class="TitleAboutContainer"><span class="TitleAbout">SOBRE NOSOTROS</span></div>
-    <div class="TextAboutContainer"><span class="TextAbout">
-        Nuestro equipo se dedica a proporcionar <br />
-        soluciones integrales en diseño,<br />
-        construcción y mantenimiento para diversos sectores, incluyendo hogares,<br />
-        oficinas, retail, condominios, centros educativos y otros.
-      </span></div>
-      <div class="staff-slider-container">
-        <h1 class="staff-title">NUESTRO PERSONAL ACTIVO</h1>
-        <div class="staff-slider">
-          <div class="staff-slide">
-            <img src="../Img/Jefe-1.jpg" alt="Foto del personal" />
-            <p class="staff-name">Francisco Elizondo Villalobos<br><span>Jefe de Proyectos</span></p>
-          </div>
-          <div class="staff-slide">
-            <img src="../Img/Jefe-2.jpg" alt="Foto del personal" />
-            <p class="staff-name">Francisco Elizondo Quezada<br><span>Supervisor </span></p>
-          </div>
-          <div class="staff-slide">
-            <img src="../Img/Jefe-3.jpg" alt="Foto del personal" />
-            <p class="staff-name">Paulo Rojas Retamales<br><span>Jefe de Operaciones</span></p>
-          </div>
-          <div class="staff-slide">
-            <img src="../Img/jefe-4.jpg" alt="Foto del personal" />
-            <p class="staff-name">Erick Díaz Valenzuela<br><span>Técnico Mantención</span></p>
-          </div>
-          <div class="staff-slide">
-            <img src="../Img/jefe-5.jpg" alt="Foto del personal" />
-            <p class="staff-name">Owen Rojas Arenas<br><span>Técnico Mantención</span></p>
-          </div>
+    <div class="TextAboutContainer">
+      <span class="TextAbout">
+        En C-MVT, ofrecemos soluciones integrales en diseño,<br />
+        construcción y mantenimiento, abarcando sectores como hogares,<br />
+        oficinas, retail, condominios, centros educativos y más.<br />
+        Desde 2017, hemos combinado nuestra experiencia con la calidad<br />
+        para entregar proyectos que cumplen con las más altas expectativas<br />
+        de nuestros clientes.<br /><br />
+    
+        Nuestro equipo, conformado por profesionales con amplia trayectoria,<br />
+        se distingue por su enfoque en la innovación y su capacidad para<br />
+        gestionar proyectos de manera eficiente y personalizada.<br />
+        La transparencia es uno de nuestros pilares fundamentales,<br />
+        por lo que nos aseguramos de mantener una comunicación clara<br />
+        y continua respecto a nuestros clientes en cada etapa del proyecto,<br />
+        garantizando que cada requisito solicitado sea cumplido.
+      </span>
+    </div>
+  
+    <div class="staff-slider-container">
+      <h1 class="staff-title">NUESTRO PERSONAL ACTIVO</h1>
+      <div class="staff-slider">
+        <div class="staff-slide">
+          <img src="../Img/Jefe-1.jpg" alt="Foto del personal" />
+          <p class="staff-name">Francisco Elizondo Villalobos<br><span>Jefe de Proyectos</span></p>
+        </div>
+        <div class="staff-slide">
+          <img src="../Img/Jefe-2.jpg" alt="Foto del personal" />
+          <p class="staff-name">Francisco Elizondo Quezada<br><span>Supervisor </span></p>
+        </div>
+        <div class="staff-slide">
+          <img src="../Img/Jefe-3.jpg" alt="Foto del personal" />
+          <p class="staff-name">Paulo Rojas Retamales<br><span>Jefe de Operaciones</span></p>
+        </div>
+        <div class="staff-slide">
+          <img src="../Img/jefe-4.jpg" alt="Foto del personal" />
+          <p class="staff-name">Erick Díaz Valenzuela<br><span>Técnico Mantención</span></p>
+        </div>
+        <div class="staff-slide">
+          <img src="../Img/jefe-5.jpg" alt="Foto del personal" />
+          <p class="staff-name">Owen Rojas Arenas<br><span>Técnico Mantención</span></p>
         </div>
       </div>
-      
+    </div>
   </section>
 
-  <section class="section-build" style="background: rgba(166, 166, 166, 1.000000); width:100%; height:100%; overflow:hidden; position:relative;">
+  <section class="section-build" id="section-gallery"
+    style="background: rgba(166, 166, 166, 1.000000); width:100%; height:100%; overflow:hidden; position:relative;">
     <div class="gallery-title">Galería</div>
     <div class="image-container" style="opacity: 0;">
       <img src="../Img/Local_metro.jpg" class="gallery-image" />
       <div class="image-text">HAPPYLAND</div>
     </div>
-    <div class="image-container">
-      <img src="../imagenes/234338.jpg" class="gallery-image" onclick="window.location.href='../Layout/Galery1.html';" />
+    <div class="image-container" >
+      <img src="../imagenes/234338.jpg" class="gallery-image"
+        onclick="window.location.href='../Layout/Galery1.html';" />
       <div class="image-text">HAPPYLAND</div>
     </div>
     <div class="image-container" style="opacity: 0;">
-      <img src="../Img/Local_metro.jpg" class="gallery-image"  />
+      <img src="../Img/Local_metro.jpg" class="gallery-image" />
       <div class="image-text">EMPRESA Y</div>
     </div>
   </section>
@@ -103,15 +123,18 @@
   <section>
     <div class="slider-container">
       <h1>NOS ELIGIERON CON SEGURIDAD</h1>
-    <div class="slider">
-      <div class="slide"><img src="../Img/itau.png" alt="Si puedes leer esto, es porque se cayo el servidor de imagenes" /></div>
-      <div class="slide"><img src="../Img/Logo_Aramark_2.png " alt="Si puedes leer esto, es porque se cayo el servidor de imagenes" /></div>
-      <div class="slide"><img src="../Img/happyland.png" alt="Si puedes leer esto, es porque se cayo el servidor de imagenes" /></div>
+      <div class="slider">
+        <div class="slide"><img src="../Img/itau.png"
+            alt="Si puedes leer esto, es porque se cayo el servidor de imagenes" /></div>
+        <div class="slide"><img src="../Img/Logo_Aramark_2.png "
+            alt="Si puedes leer esto, es porque se cayo el servidor de imagenes" /></div>
+        <div class="slide"><img src="../Img/happyland.png"
+            alt="Si puedes leer esto, es porque se cayo el servidor de imagenes" /></div>
+      </div>
     </div>
-  </div>
   </section>
 
-  <section class="section-contact">
+  <section class="section-contact" id="section-contact">
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-logo">
@@ -144,27 +167,35 @@
         slidesToShow: 1,
         slidesToScroll: 1
       });
-  
-    $('.staff-slider').slick({
-      autoplay: true, 
-      autoplaySpeed: 2000,
-      dots: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 3, 
-      slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1
+
+      $('.staff-slider').slick({
+        autoplay: true,
+        autoplaySpeed: 2000,
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1
+            }
           }
-        }
-      ]
+        ]
+      });
     });
-  });
   </script>
-  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("menuButton").onclick = function () {
+        document.getElementById("sidebar").classList.toggle("active");
+      };
+    });
+
+  </script>
   <script src="../home.js"></script>
 </body>
+
 </html>

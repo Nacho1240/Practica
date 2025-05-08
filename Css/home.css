@@ -77,7 +77,7 @@
 /* Botón menú hamburguesa */
 .menu-btn {
     display: none;
-    position: fixed;
+    position: sticky;
     background-color: #333;
     color: white;
     border: none;
@@ -111,10 +111,17 @@
         display: none;
     }
 
+    /* Mostrar el contenedor del botón */
+    #menu-btn-container {
+        display: flex;
+        visibility: visible;
+    }
+
     .menu-btn {
         display: block;
     }
 }
+
 
 /* Home Content */
 .homeContent {
@@ -343,6 +350,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    padding-top: 5%;
 }
 
 .TextAbout {
@@ -424,8 +432,8 @@ div, section {
       }
   
       .slide img {
-        max-width: 80%;
-        max-height: 120px;
+        max-width: 100%;
+        max-height: 160%;
         object-fit: contain;
       }
 
@@ -476,6 +484,7 @@ div, section {
         scroll-snap-type: x mandatory;
         gap: 1.5rem;
         padding-bottom: 10px;
+        overflow: hidden;
       }
       
       .staff-slide {
@@ -487,6 +496,7 @@ div, section {
         background: #f7f7f7;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         padding: 10px;
+        
       }
       
       .staff-slide img {
@@ -495,6 +505,7 @@ div, section {
         max-height: 300px; /* o el alto máximo que tú quieras */
         object-fit: contain;
         border-radius: 8px;
+        
       }
       
       
