@@ -17,7 +17,7 @@ function getStartingId() {
     if (!fs.existsSync(LOCAL_DIR)) return 234339;
 
     const files = fs.readdirSync(LOCAL_DIR)
-        .map(f => parseInt(f.split('.')[0])) // Convertir '234340.jpg' a 234340
+        .map(f => parseInt(f.split('.')[0])) 
         .filter(n => !isNaN(n));
 
     return files.length > 0 ? Math.max(...files) + 1 : 234339;
