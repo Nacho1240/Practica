@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
   <link rel="icon" href="../Img/c-mvt_logo.png" type="image/png" sizes="16x16" />
+  <link rel="stylesheet" href="../Css/galeria.css" />
+
 </head>
 
 <body>
@@ -102,23 +104,61 @@
     </div>
   </section>
 
-  <section class="section-build" id="section-gallery"
-    style="background: rgba(166, 166, 166, 1.000000); width:100%; height:100%; overflow:hidden; position:relative;">
-    <div class="gallery-title">Galería</div>
-    <div class="image-container" style="opacity: 0;">
-      <img src="../Img/Local_metro.jpg" class="gallery-image" />
-      <div class="image-text">HAPPYLAND</div>
+<section class="gallery-section">
+  <div class="container">
+    <div class="content-image-wrapper">
+      <!-- Textual Content -->
+      <div class="text-content">
+        <div class="badge">
+          📷 Galería de Proyectos
+        </div>
+
+        <h2>
+          Explora Nuestros <br />
+          <span class="highlight">Proyectos Realizados</span>
+        </h2>
+
+        <p>
+          Aqui podras ver un conjunto de imagenes de los proyectos mas recientes que hemos realizado, cada uno de ellos
+          representa nuestro compromiso con la calidad y la innovación en el sector de la construcción.
+        </p>
+
+        <div class="buttons">
+          <a href="/Layout/Galery1.html" class="btn primary">
+            👁 Ver Galería Completa →
+          </a>
+          
+        </div>
+        <!-- recordar consultar cuanto de estos datos son reales -->
+        <div class="stats">
+          <div><div class="number">Multiples</div><div>Proyectos</div></div>
+          <div><div class="number">50+</div><div>Fotos</div></div>
+         
+        </div>
+      </div>
+
+      <!-- Image Content -->
+      <div class="image-content">
+        <div class="grid">
+          <div class="card large">
+            <img src="../imagenes/234346.jpg" alt="Proyecto principal" />
+            <div class="overlay">
+              <p>Proyecto Residencial</p>
+              <small>Edificio Moderno - 2024</small>
+            </div>
+          </div>
+          <div class="card small">
+            <img src="../imagenes/234346.jpg" alt="Interior moderno" />
+          </div>
+          <div class="card small">
+            <img src="../imagenes/234346.jpg" alt="Edificio comercial" />
+          </div>
+        </div>
+        <div class="floating-icon">📷</div>
+      </div>
     </div>
-    <div class="image-container" >
-      <img src="../imagenes/234338.jpg" class="gallery-image"
-        onclick="window.location.href='../Layout/Galery1.html';" />
-      <div class="image-text">HAPPYLAND</div>
-    </div>
-    <div class="image-container" style="opacity: 0;">
-      <img src="../Img/Local_metro.jpg" class="gallery-image" />
-      <div class="image-text">EMPRESA Y</div>
-    </div>
-  </section>
+  </div>
+</section>
 
   <section>
     <div class="slider-container">
