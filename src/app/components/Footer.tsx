@@ -1,4 +1,3 @@
-import { MessageCircle } from 'lucide-react';
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 export function Footer() {
   const currentYear = new Date().getFullYear();
