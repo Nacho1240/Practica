@@ -4,7 +4,7 @@ export function Testimonials() {
   const testimonials = [
     {
       name: 'María González',
-      position: 'Directora de Operaciones, TechCorp',
+      position: 'Directora de Operaciones',
       initials: 'MG',
       text: 'Excelente trabajo en la construcción de nuestras nuevas oficinas. Cumplieron con los tiempos y superaron nuestras expectativas en calidad.',
       rating: 5
@@ -18,7 +18,7 @@ export function Testimonials() {
     },
     {
       name: 'Ana Martínez',
-      position: 'Gerente General, IndustriaMax',
+      position: 'Gerente General',
       initials: 'AM',
       text: 'La bodega industrial quedó perfecta. Gran capacidad de gestión y excelente comunicación durante todo el proyecto.',
       rating: 5

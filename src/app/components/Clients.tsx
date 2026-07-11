@@ -1,32 +1,12 @@
+import { ImageWithFallback } from './figma/ImageWithFallback';
+
 export function Clients() {
   const clients = [
-    {
-      name: 'Itaú',
-      logo: (
-        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" className="max-h-14 max-w-full">
-          <rect width="200" height="80" fill="#EC7000" rx="6"/>
-          <text x="50%" y="50%" fontFamily="Arial, sans-serif" fontSize="32" fontWeight="bold" fill="#fff" textAnchor="middle" dominantBaseline="middle">Itaú</text>
-        </svg>
-      )
-    },
-    {
-      name: 'Aramark',
-      logo: (
-        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" className="max-h-14 max-w-full">
-          <rect width="200" height="80" fill="#003087" rx="6"/>
-          <text x="50%" y="50%" fontFamily="Arial, sans-serif" fontSize="26" fontWeight="bold" fill="#fff" textAnchor="middle" dominantBaseline="middle">ARAMARK</text>
-        </svg>
-      )
-    },
-    {
-      name: 'Happyland',
-      logo: (
-        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" className="max-h-14 max-w-full">
-          <rect width="200" height="80" fill="#FFD700" rx="6"/>
-          <text x="50%" y="50%" fontFamily="Arial, sans-serif" fontSize="24" fontWeight="bold" fill="#1a1a1a" textAnchor="middle" dominantBaseline="middle">Happyland</text>
-        </svg>
-      )
-    }
+    { name: 'Itaú', logo: '/logos/itau.png' },
+    { name: 'Aramark', logo: '/logos/aramark.png' },
+    { name: 'Happyland', logo: '/logos/happyland.png' },
+    { name: 'Paletas', logo: '/logos/palettas.webp' },
+    { name: 'Cory', logo: '/logos/Cory.png' },
   ];
 
   return (
@@ -39,13 +19,17 @@ export function Clients() {
           <p className="text-slate-300">Empresas que confían en nuestro trabajo</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div className="flex flex-wrap justify-center gap-6">
           {clients.map((client, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-lg flex items-center justify-center min-h-[120px] hover:transform hover:scale-105 transition-all duration-300 shadow-lg"
+              className="bg-white p-8 rounded-lg flex items-center justify-center min-h-[120px] w-full sm:w-[calc(50%-1.5rem)] md:w-[calc(33.333%-1.5rem)] lg:w-[calc(20%-1.5rem)] hover:transform hover:scale-105 transition-all duration-300 shadow-lg"
             >
-              {client.logo}
+              <ImageWithFallback
+                src={client.logo}
+                alt={`Logo de ${client.name}`}
+                className="max-h-14 max-w-full object-contain"
+              />
             </div>
           ))}
         </div>

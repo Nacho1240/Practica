@@ -3,40 +3,40 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 export function Gallery() {
   const projects = [
     {
-      image: 'https://images.unsplash.com/photo-1774600166818-e554a4d4c376?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwzfHxjb25zdHJ1Y3Rpb24lMjB0ZWFtJTIwd29ya2Vyc3xlbnwxfHx8fDE3NzY1OTgxMjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      title: 'Torre Empresarial Centro',
+      image: '/images/Metro2.jpg',
+      title: 'Construccion de Local en Metro',
       category: 'Comercial',
-      description: 'Edificio de oficinas de 20 pisos'
+      description: 'Construccion de Local DGL en Metro Vicente Valdes'
     },
     {
-      image: 'https://images.unsplash.com/photo-1769721209842-e46c60e7fbf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBjb25zdHJ1Y3Rpb24lMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3NzY2MjI1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      title: 'Residencial Skyline',
+      image: '/images/Remodelacion.jpg',
+      title: 'Remodelación de Colegio',
+      category: 'Institucional',
+      description: 'Remodelación general de colegio en Lo Abarca'
+    },
+    {
+      image: '/images/Fournil.jpg',
+      title: 'Remodelacion Local Le Fournil',
+      category: 'Comercial',
+      description: 'Remodelacion general en local Le Fournil en Mall Plaza'
+    },
+    {
+      image: '/images/Happyland.jpg',
+      title: 'Remodelacion de Happyland ',
+      category: 'Comercial',
+      description: 'Remodelacion y Habilitación Local Retail Happyland en San Bernardo'
+    },
+    {
+      image: '/images/Paletas.jpg',
+      title: 'Habilitación de Paletas',
+      category: 'Comercial',
+      description: 'Remodelación y habilitación de Terrazas en Local Paletas'
+    },
+    {
+      image: '/images/Pisos.jpg',
+      title: 'Mantención de Techumbre',
       category: 'Residencial',
-      description: 'Complejo de departamentos de lujo'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1761877676992-0c232a7920f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw1fHxtb2Rlcm4lMjBjb25zdHJ1Y3Rpb24lMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3NzY2MjI1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      title: 'Centro Logístico Norte',
-      category: 'Industrial',
-      description: 'Bodega industrial de 15,000 m²'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1774979159518-7706ca7bb2e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBjb25zdHJ1Y3Rpb24lMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3NzY2MjI1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      title: 'Plaza Comercial Sunset',
-      category: 'Comercial',
-      description: 'Centro comercial de 3 niveles'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1770821030454-5e3ccb2d96dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxMHx8bW9kZXJuJTIwY29uc3RydWN0aW9uJTIwYnVpbGRpbmclMjBhcmNoaXRlY3R1cmV8ZW58MXx8fHwxNzc2NjIyNTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      title: 'Edificio Corporativo Vista',
-      category: 'Comercial',
-      description: 'Sede corporativa moderna'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1762049297262-4eef6d6d4d7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjb25zdHJ1Y3Rpb24lMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3NzY2MjI1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      title: 'Conjunto Habitacional Palmas',
-      category: 'Residencial',
-      description: 'Desarrollo de 120 viviendas'
+      description: 'Construcción y Mantencion de Techumbre en casas de Cajon del Maipo'
     }
   ];
 
