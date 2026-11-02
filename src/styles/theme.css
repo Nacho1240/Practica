@@ -12,8 +12,10 @@
   --color-cielo: #29b6f6;
   --color-cielo-claro: #e1f5fe;
   --color-cielo-tinta: #0369a1;
-  --color-concreto: #eef0f1;
-  --color-hueso: #f8fafb;
+  /* Fondo general: gris muy claro en lugar de blanco puro, para no encandilar */
+  --color-fondo: #f3f5f6;
+  --color-hueso: #f7f8f9;
+  --color-concreto: #e6eaec;
   --color-concreto-medio: #b9c0c4;
   --color-gris: #5c656b;
   --color-grafito: #2b3135;
@@ -35,7 +37,7 @@
   }
 
   body {
-    background: var(--color-white);
+    background: var(--color-fondo);
     color: var(--color-grafito);
     font-family: var(--font-sans);
     font-size: 1.0625rem;
@@ -90,7 +92,7 @@
     color: var(--color-grafito);
   }
   .boton-cielo:hover {
-    background: var(--color-white);
+    background: var(--color-fondo);
   }
 
   /* Botón sobre fondo claro */

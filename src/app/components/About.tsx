@@ -26,7 +26,7 @@ const valores = [
 export function About() {
   return (
     <section id="nosotros">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:py-28">
+      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:pt-28 lg:pb-20">
         <div>
           <h2 className="text-4xl sm:text-5xl">Un solo equipo para todo el proyecto</h2>
           <p className="mt-6 text-xl leading-relaxed">
@@ -57,21 +57,19 @@ export function About() {
         </figure>
       </div>
 
-      <div className="bg-concreto">
-        <dl className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:gap-8">
-          {valores.map(({ Icono, titulo, texto }) => (
-            <div key={titulo}>
-              <dt className="flex items-center gap-3 font-titulo text-xl font-bold">
-                <span className="grid size-11 shrink-0 place-items-center rounded-full bg-cielo">
-                  <Icono size={21} strokeWidth={1.9} aria-hidden="true" />
-                </span>
-                {titulo}
-              </dt>
-              <dd className="mt-3 text-gris">{texto}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
+      <dl className="mx-auto grid max-w-7xl gap-10 px-5 pb-20 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:gap-8 lg:pb-28">
+        {valores.map(({ Icono, titulo, texto }) => (
+          <div key={titulo} className="border-t border-concreto-medio pt-6">
+            <dt className="flex items-center gap-3 font-titulo text-xl font-bold">
+              <span className="grid size-11 shrink-0 place-items-center rounded-full bg-cielo">
+                <Icono size={21} strokeWidth={1.9} aria-hidden="true" />
+              </span>
+              {titulo}
+            </dt>
+            <dd className="mt-3 text-gris">{texto}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }

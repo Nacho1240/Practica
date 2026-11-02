@@ -21,7 +21,7 @@ export function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        solida ? 'bg-white text-grafito shadow-[0_1px_0_var(--color-concreto-medio)]' : 'bg-transparent text-white'
+        solida ? 'bg-fondo text-grafito shadow-[0_1px_0_var(--color-concreto-medio)]' : 'bg-transparent text-white'
       }`}
     >
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-8" aria-label="Principal">
@@ -64,7 +64,7 @@ export function Navbar() {
       </nav>
 
       {abierto && (
-        <div id="menu-movil" className="border-t border-concreto bg-white px-5 pb-6 md:hidden">
+        <div id="menu-movil" className="border-t border-concreto bg-fondo px-5 pb-6 md:hidden">
           <ul>
             {secciones.map((s) => (
               <li key={s.id} className="border-b border-concreto">

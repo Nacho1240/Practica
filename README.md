@@ -27,7 +27,9 @@ Los colores son los de la empresa: **cyan como el cielo, blanco como los camione
 |---|---|---|
 | `cielo` | `#29B6F6` | Botones, franjas y bloques destacados |
 | `cielo-tinta` | `#0369A1` | Textos y enlaces cyan sobre blanco |
-| `concreto` | `#EEF0F1` | Fondos claros |
+| `fondo` | `#F3F5F6` | Fondo general (en lugar de blanco puro, para no encandilar) |
+| `hueso` | `#F7F8F9` | Tarjetas y recuadros sobre fondo gris |
+| `concreto` | `#E6EAEC` | Secciones alternas (servicios, testimonios, contacto) |
 | `gris` | `#5C656B` | Texto secundario |
 | `grafito` | `#2B3135` | Texto principal, galería y pie de página |
 

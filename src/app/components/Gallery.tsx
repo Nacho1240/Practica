@@ -119,7 +119,7 @@ export function Gallery() {
         ref={dialogo}
         onClick={(e) => e.target === e.currentTarget && cerrar()}
         onClose={() => setActivo(null)}
-        className="m-auto max-h-[92vh] w-[min(64rem,92vw)] overflow-hidden rounded-lg bg-white p-0 text-grafito backdrop:bg-grafito/90"
+        className="m-auto max-h-[92vh] w-[min(64rem,92vw)] overflow-hidden rounded-lg bg-fondo p-0 text-grafito backdrop:bg-grafito/90"
         aria-label={activo?.titulo}
       >
         {activo && (
