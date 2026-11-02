@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# C-MVT — Sitio web corporativo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio web de **C-MVT**, empresa chilena de diseño, construcción y mantenimiento fundada en 2017. La página presenta a la empresa, sus servicios, una galería de proyectos realizados, los clientes que han confiado en ella y un formulario de contacto.
 
-Currently, two official plugins are available:
+## Contenido del sitio
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Es una página única (*single page*) con navegación por secciones:
 
-## React Compiler
+| Sección | Componente | Descripción |
+|---|---|---|
+| Inicio | `Hero.tsx` | Portada con mensaje principal y botones a cotización y proyectos |
+| Nosotros | `About.tsx` | Historia, equipo y valores de la empresa |
+| Servicios | `Services.tsx` | Oficinas y retail, hogares y condominios, centros educativos, diseño y mantenimiento |
+| Cifras | `Stats.tsx` | Indicadores destacados de la empresa |
+| Galería | `Gallery.tsx` | Proyectos realizados (Metro Vicente Valdés, Le Fournil, Happyland, Paletas, entre otros) |
+| Clientes | `Clients.tsx` | Logos de empresas clientes |
+| Testimonios | `Testimonials.tsx` | Opiniones de clientes |
+| Contacto | `Contact.tsx` | Datos de contacto, WhatsApp y formulario |
+| Pie de página | `Footer.tsx` | Enlaces rápidos y redes sociales |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+La barra de navegación (`Navbar.tsx`) es fija y tiene menú desplegable en móvil.
 
-## Expanding the ESLint configuration
+## Tecnologías
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [React 19](https://react.dev/) + TypeScript
+- [Vite](https://vite.dev/) como servidor de desarrollo y empaquetador
+- [Tailwind CSS 4](https://tailwindcss.com/) para estilos
+- Componentes de UI basados en [Radix UI](https://www.radix-ui.com/) (estilo shadcn/ui) en `src/app/components/ui/`
+- Íconos de [lucide-react](https://lucide.dev/) y [react-icons](https://react-icons.github.io/react-icons/)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Estructura del proyecto
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+├── index.html               # Punto de entrada HTML
+├── public/
+│   ├── Logo.png             # Logo de la empresa (también usado como favicon)
+│   ├── images/              # Fotos de proyectos para la galería
+│   └── logos/               # Logos de clientes
+└── src/
+    ├── main.tsx             # Monta la aplicación
+    ├── app/
+    │   ├── App.tsx          # Ensambla todas las secciones de la página
+    │   └── components/      # Secciones del sitio + componentes de UI
+    └── styles/              # Tailwind, tema, fuentes y estilos globales
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Cómo ejecutarlo
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Requisitos: [Node.js](https://nodejs.org/) 20 o superior.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install       # instala dependencias
+npm run dev       # servidor de desarrollo en http://localhost:5173
+npm run build     # genera la versión de producción en dist/
+npm run preview   # sirve localmente la versión de producción
+npm run lint      # revisa el código con ESLint
 ```
+
+## Cómo editar el contenido
+
+- **Proyectos de la galería:** agregar la foto en `public/images/` y una entrada en el arreglo `projects` de `src/app/components/Gallery.tsx`.
+- **Clientes:** agregar el logo en `public/logos/` y una entrada en el arreglo `clients` de `src/app/components/Clients.tsx`.
+- **Datos de contacto:** `src/app/components/Contact.tsx` y `src/app/components/Footer.tsx`.
+- **Servicios y textos de la empresa:** `Services.tsx`, `About.tsx` y `Stats.tsx`.
+
+## Estado actual y pendientes conocidos
+
+El proyecto está en proceso de modernización y corrección de errores. Algunos puntos detectados:
+
+- La carpeta `node_modules/` está versionada en el repositorio aunque figura en `.gitignore`; debería eliminarse del control de versiones.
+- El formulario de contacto muestra un mensaje de confirmación pero no envía los datos a ningún destino.
+- Quedan archivos de la plantilla inicial de Vite sin uso (`src/App.tsx`, `src/assets/react.svg`, `src/assets/vite.svg`, `src/assets/hero.png`).
+- `package.json` incluye dependencias que no parecen usarse (`lucide-react-native`, `native`, `source`, `lucide`).
+
+## Contacto
+
+- Email: Felizondo@c-mvt.com
+- Teléfono / WhatsApp: +56 9 4955 7975
+- Instagram: [@constructoracmvt](https://www.instagram.com/constructoracmvt)
