@@ -9,7 +9,7 @@ const medios = [
 ];
 
 const campo =
-  'w-full rounded-md border border-grafito/25 bg-white px-4 py-3 text-grafito placeholder:text-gris/70 transition-colors focus:border-cielo-tinta focus:outline-2 focus:outline-offset-0 focus:outline-cielo-tinta';
+  'w-full rounded-md border border-grafito/25 bg-hueso px-4 py-3 text-grafito placeholder:text-gris/70 transition-colors focus:border-cielo-tinta focus:outline-2 focus:outline-offset-0 focus:outline-cielo-tinta';
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -27,8 +27,9 @@ export function Contact() {
   };
 
   return (
-    <section id="contacto" className="border-t-4 border-cielo bg-white">
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:py-28">
+    <section id="contacto" className="bg-concreto px-4 pb-16 sm:px-8 lg:pb-24">
+      {/* Recuadro con bordes redondeados y fondo blanco suave, más descansado para la vista que el blanco puro */}
+      <div className="mx-auto grid max-w-7xl gap-14 rounded-2xl border-t-4 border-cielo bg-hueso px-5 py-14 shadow-[0_20px_50px_-30px_rgb(43_49_53/0.35)] sm:px-10 lg:grid-cols-12 lg:gap-8 lg:px-14 lg:py-20">
         <div className="lg:col-span-6">
           <h2 className="text-4xl sm:text-5xl">Conversemos sobre tu proyecto</h2>
           <p className="mt-6 max-w-md text-lg text-gris">
