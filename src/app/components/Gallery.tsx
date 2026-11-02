@@ -19,7 +19,15 @@ const proyectos: Proyecto[] = [
     tipo: 'Comercial',
     descripcion: 'Remodelación y habilitación de local retail en San Bernardo.',
     columnas: 'lg:col-span-7',
-    alto: 'lg:h-[27rem]',
+    alto: 'lg:h-[30rem]',
+  },
+  {
+    imagen: '/images/fournil.webp',
+    titulo: 'Local Le Fournil',
+    tipo: 'Comercial',
+    descripcion: 'Remodelación general del local en Mall Plaza.',
+    columnas: 'lg:col-span-5',
+    alto: 'lg:h-[30rem]',
   },
   {
     imagen: '/images/paletas.webp',
@@ -27,31 +35,31 @@ const proyectos: Proyecto[] = [
     tipo: 'Comercial',
     descripcion: 'Remodelación y habilitación de las terrazas del local.',
     columnas: 'lg:col-span-5',
-    alto: 'lg:h-[27rem]',
-  },
-  {
-    imagen: '/images/metro2.webp',
-    titulo: 'Local en Metro Vicente Valdés',
-    tipo: 'Comercial',
-    descripcion: 'Construcción del local DGL en la estación Vicente Valdés.',
-    columnas: 'lg:col-span-4',
-    alto: 'lg:h-[24rem]',
+    alto: 'lg:h-[30rem]',
   },
   {
     imagen: '/images/remodelacion.webp',
     titulo: 'Colegio en Lo Abarca',
     tipo: 'Institucional',
     descripcion: 'Remodelación general del colegio.',
-    columnas: 'lg:col-span-4',
-    alto: 'lg:h-[24rem]',
+    columnas: 'lg:col-span-7',
+    alto: 'lg:h-[30rem]',
+  },
+  {
+    imagen: '/images/metro2.webp',
+    titulo: 'Local en Metro Vicente Valdés',
+    tipo: 'Comercial',
+    descripcion: 'Construcción del local DGL en la estación Vicente Valdés.',
+    columnas: 'lg:col-span-6',
+    alto: 'lg:h-[26rem]',
   },
   {
     imagen: '/images/pisos.webp',
     titulo: 'Techumbres en Cajón del Maipo',
     tipo: 'Residencial',
     descripcion: 'Construcción y mantención de techumbres en viviendas.',
-    columnas: 'lg:col-span-4',
-    alto: 'lg:h-[24rem]',
+    columnas: 'lg:col-span-6',
+    alto: 'lg:h-[26rem]',
   },
 ];
 
@@ -66,39 +74,42 @@ export function Gallery() {
   const cerrar = () => dialogo.current?.close();
 
   return (
-    <section id="proyectos" className="border-t border-linea">
+    <section id="proyectos" className="bg-grafito text-white">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-8">
-          <h2 className="titulo-ancho text-4xl sm:text-5xl lg:col-span-6">Obras realizadas</h2>
-          <p className="max-w-lg text-lg text-gris lg:col-span-5 lg:col-start-8">
-            Algunos de los proyectos que hemos entregado en locales comerciales, colegios y viviendas.
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
+          <h2 className="text-4xl sm:text-5xl">Obras realizadas</h2>
+          <p className="max-w-lg text-lg text-concreto-medio">
+            Algunos de los proyectos que hemos entregado en locales comerciales, colegios y viviendas. Toca una foto para
+            verla completa.
           </p>
         </div>
 
-        <ul className="mt-14 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-12">
+        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-12">
           {proyectos.map((p) => (
             <li key={p.titulo} className={p.columnas}>
               <button
                 type="button"
                 onClick={() => abrir(p)}
-                className={`group relative block w-full overflow-hidden bg-papel ${p.alto}`}
+                className={`group relative block aspect-[4/3] w-full overflow-hidden rounded-lg bg-black text-left lg:aspect-auto ${p.alto}`}
                 aria-label={`Ampliar foto: ${p.titulo}`}
               >
                 <ImageWithFallback
                   src={p.imagen}
-                  alt={p.titulo}
+                  alt=""
                   loading="lazy"
-                  className="aspect-[4/3] h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] lg:aspect-auto motion-reduce:transition-none"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none"
                 />
-                <span className="absolute right-3 bottom-3 grid size-10 place-items-center rounded-full bg-white/90 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent p-5 pt-16 sm:p-6 sm:pt-20">
+                  <span className="inline-block rounded-full bg-cielo px-3 py-0.5 text-sm font-semibold text-grafito">
+                    {p.tipo}
+                  </span>
+                  <span className="mt-2 block font-titulo text-2xl font-bold">{p.titulo}</span>
+                  <span className="mt-1 block text-[0.975rem] text-white/85">{p.descripcion}</span>
+                </span>
+                <span className="absolute top-4 right-4 grid size-10 place-items-center rounded-full bg-white/90 text-grafito opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                   <Expand size={18} aria-hidden="true" />
                 </span>
               </button>
-              <div className="mt-4 flex items-baseline justify-between gap-4">
-                <h3 className="titulo-medio text-lg">{p.titulo}</h3>
-                <span className="shrink-0 text-sm font-semibold text-tinta">{p.tipo}</span>
-              </div>
-              <p className="mt-1 text-[0.975rem] text-gris">{p.descripcion}</p>
             </li>
           ))}
         </ul>
@@ -108,19 +119,19 @@ export function Gallery() {
         ref={dialogo}
         onClick={(e) => e.target === e.currentTarget && cerrar()}
         onClose={() => setActivo(null)}
-        className="m-auto max-h-[92vh] w-[min(64rem,92vw)] bg-white p-0 backdrop:bg-marino/85"
+        className="m-auto max-h-[92vh] w-[min(64rem,92vw)] overflow-hidden rounded-lg bg-white p-0 text-grafito backdrop:bg-grafito/90"
         aria-label={activo?.titulo}
       >
         {activo && (
           <figure className="flex max-h-[92vh] flex-col">
-            <img src={activo.imagen} alt={activo.titulo} className="min-h-0 flex-1 bg-marino object-contain" />
+            <img src={activo.imagen} alt={activo.titulo} className="min-h-0 flex-1 bg-black object-contain" />
             <figcaption className="flex items-start justify-between gap-6 p-5">
               <div>
-                <p className="titulo-medio text-xl">{activo.titulo}</p>
+                <p className="font-titulo text-2xl font-bold">{activo.titulo}</p>
                 <p className="mt-1 text-gris">{activo.descripcion}</p>
               </div>
               <button type="button" onClick={cerrar} className="-m-2 p-2" aria-label="Cerrar">
-                <X size={24} />
+                <X size={26} />
               </button>
             </figcaption>
           </figure>

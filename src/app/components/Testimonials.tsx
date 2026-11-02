@@ -21,15 +21,15 @@ const testimonios = [
 
 export function Testimonials() {
   return (
-    <section className="bg-papel">
+    <section className="bg-concreto">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-        <h2 className="titulo-ancho text-4xl sm:text-5xl">Lo que dicen nuestros clientes</h2>
+        <h2 className="text-4xl sm:text-5xl">Lo que dicen nuestros clientes</h2>
 
         <ul className="mt-14 grid gap-12 md:grid-cols-3 md:gap-0">
           {testimonios.map((t) => (
-            <li key={t.nombre} className="md:border-l md:border-marino/20 md:px-8 md:first:border-l-0 md:first:pl-0">
+            <li key={t.nombre} className="md:border-l md:border-grafito/15 md:px-8 md:first:border-l-0 md:first:pl-0">
               <figure className="flex h-full flex-col">
-                <span className="titulo-ancho block h-12 text-7xl text-cyan-marca" aria-hidden="true">
+                <span className="block h-14 font-titulo text-8xl font-extrabold text-cielo" aria-hidden="true">
                   “
                 </span>
                 <blockquote className="flex-1 text-lg leading-relaxed">{t.texto}</blockquote>

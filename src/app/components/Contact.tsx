@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { contacto } from '../datos';
 
 const campo =
-  'w-full rounded-sm border border-marino/25 bg-white px-4 py-3 text-marino placeholder:text-gris/70 transition-colors focus:border-tinta focus:outline-2 focus:outline-offset-0 focus:outline-tinta';
+  'w-full rounded-md border border-grafito/25 bg-white px-4 py-3 text-grafito placeholder:text-gris/70 transition-colors focus:border-cielo-tinta focus:outline-2 focus:outline-offset-0 focus:outline-cielo-tinta';
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -21,17 +21,17 @@ export function Contact() {
   };
 
   return (
-    <section id="contacto" className="bg-cyan-marca">
+    <section id="contacto" className="bg-cielo">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:py-28">
         <div className="lg:col-span-6">
-          <h2 className="titulo-ancho text-4xl sm:text-5xl">Conversemos sobre tu proyecto</h2>
+          <h2 className="text-4xl sm:text-5xl">Conversemos sobre tu proyecto</h2>
           <p className="mt-6 max-w-md text-lg">
             Llámanos o escríbenos y te ayudamos a definir el alcance, los plazos y una cotización.
           </p>
 
           <a
             href={contacto.telefonoHref}
-            className="titulo-ancho mt-10 inline-block text-[2rem] decoration-2 underline-offset-8 hover:underline sm:text-5xl"
+            className="mt-10 inline-block font-titulo text-[2.25rem] font-extrabold decoration-2 underline-offset-8 hover:underline sm:text-5xl"
           >
             {contacto.telefono}
           </a>
@@ -59,7 +59,7 @@ export function Contact() {
             </li>
           </ul>
 
-          <div className="mt-12 max-w-sm border-t border-marino/30 pt-6">
+          <div className="mt-12 max-w-sm border-t border-grafito/30 pt-6">
             <h3 className="font-semibold">Horario de atención</h3>
             <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1">
               <dt>Lunes a viernes</dt>
@@ -74,8 +74,8 @@ export function Contact() {
         </div>
 
         <div className="lg:col-span-5 lg:col-start-8">
-          <form onSubmit={handleSubmit} className="bg-white p-6 shadow-[8px_8px_0_var(--color-marino)] sm:p-9">
-            <h3 className="titulo-medio text-2xl">Envíanos un mensaje</h3>
+          <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-[0_24px_48px_-16px_rgb(43_49_53/0.35)] sm:p-9">
+            <h3 className="text-3xl">Envíanos un mensaje</h3>
 
             <div className="mt-7 space-y-5">
               <div>
@@ -146,14 +146,14 @@ export function Contact() {
 
             <div aria-live="polite">
               {submitted && (
-                <p className="mt-5 flex items-center gap-3 rounded-sm bg-papel px-4 py-3">
-                  <CheckCircle size={20} className="shrink-0 text-tinta" aria-hidden="true" />
+                <p className="mt-5 flex items-center gap-3 rounded-sm bg-cielo-claro px-4 py-3">
+                  <CheckCircle size={20} className="shrink-0 text-cielo-tinta" aria-hidden="true" />
                   Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.
                 </p>
               )}
             </div>
 
-            <button type="submit" className="boton boton-marino mt-6 w-full">
+            <button type="submit" className="boton boton-grafito mt-6 w-full">
               Enviar mensaje
             </button>
           </form>

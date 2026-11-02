@@ -29,31 +29,24 @@ const servicios = [
 
 export function Services() {
   return (
-    <section id="servicios" className="bg-papel">
+    <section id="servicios">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-8">
-          <h2 className="titulo-ancho text-4xl sm:text-5xl lg:col-span-6">Qué hacemos</h2>
-          <p className="max-w-lg text-lg text-gris lg:col-span-5 lg:col-start-8">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
+          <h2 className="text-4xl sm:text-5xl">Qué hacemos</h2>
+          <p className="max-w-lg text-lg text-gris">
             Trabajamos en cuatro tipos de proyecto. En todos podemos hacernos cargo del diseño, la obra y la mantención.
           </p>
         </div>
 
-        <ul className="mt-14 border-b border-marino/25">
+        <ul className="mt-14 grid gap-6 md:grid-cols-2">
           {servicios.map(({ icono: Icono, titulo, texto, incluye }) => (
-            <li
-              key={titulo}
-              className="grid gap-4 border-t border-marino/25 py-8 md:grid-cols-12 md:gap-8 lg:py-10"
-            >
-              <div className="flex items-center gap-4 md:col-span-5 lg:col-span-4">
-                <span className="grid size-12 shrink-0 place-items-center rounded-full bg-cyan-marca">
-                  <Icono size={22} strokeWidth={1.75} aria-hidden="true" />
-                </span>
-                <h3 className="titulo-medio text-2xl">{titulo}</h3>
-              </div>
-              <p className="text-gris md:col-span-7 lg:col-span-4">{texto}</p>
-              <ul className="flex flex-wrap gap-2 md:col-span-7 md:col-start-6 lg:col-span-4 lg:col-start-9 lg:justify-end">
+            <li key={titulo} className="flex flex-col rounded-lg border-t-4 border-cielo bg-concreto p-7 sm:p-9">
+              <Icono size={40} strokeWidth={1.5} className="text-cielo-tinta" aria-hidden="true" />
+              <h3 className="mt-5 text-3xl">{titulo}</h3>
+              <p className="mt-3 text-gris">{texto}</p>
+              <ul className="mt-6 flex flex-wrap gap-2">
                 {incluye.map((item) => (
-                  <li key={item} className="rounded-full border border-marino/20 bg-white px-3 py-1 text-sm">
+                  <li key={item} className="rounded-full bg-white px-3.5 py-1.5 text-[0.9375rem] font-medium">
                     {item}
                   </li>
                 ))}

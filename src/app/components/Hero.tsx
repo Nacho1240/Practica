@@ -1,107 +1,82 @@
-import { MessageCircle, Phone } from 'lucide-react';
+import { Building2, CalendarCheck, HardHat, MessageCircle, Phone } from 'lucide-react';
 import { contacto } from '../datos';
 
-// Línea de cota de plano: línea con marcas diagonales en los extremos y un rótulo al centro
-function Cota({ rotulo, orientacion }: { rotulo: string; orientacion: 'horizontal' | 'vertical' }) {
-  const vertical = orientacion === 'vertical';
-  return (
-    <div
-      className={`pointer-events-none absolute flex items-center justify-center text-tinta ${
-        vertical ? '-right-9 top-0 bottom-0 w-6 flex-col' : '-top-9 left-0 right-0 h-6'
-      }`}
-      aria-hidden="true"
-    >
-      <span
-        className={`cota-linea absolute bg-current ${
-          vertical ? 'inset-y-0 left-1/2 w-px origin-center' : 'inset-x-0 top-1/2 h-px origin-center'
-        }`}
-        style={{ '--eje': vertical ? 'scaleY(0)' : 'scaleX(0)' } as React.CSSProperties}
-      />
-      {/* Marcas a 45° en los extremos, como en un plano de arquitectura */}
-      {(['inicio', 'fin'] as const).map((extremo) => (
-        <svg
-          key={extremo}
-          width="14"
-          height="14"
-          viewBox="0 0 14 14"
-          className={`absolute ${
-            vertical
-              ? `left-1/2 -translate-x-1/2 ${extremo === 'inicio' ? '-top-[7px]' : '-bottom-[7px]'}`
-              : `top-1/2 -translate-y-1/2 ${extremo === 'inicio' ? '-left-[7px]' : '-right-[7px]'}`
-          }`}
-        >
-          <line className="cota-trazo" pathLength={1} x1="2" y1="12" x2="12" y2="2" stroke="currentColor" strokeWidth="2" />
-          <line className="cota-trazo" pathLength={1} x1={vertical ? 0 : 7} y1={vertical ? 7 : 0} x2={vertical ? 14 : 7} y2={vertical ? 7 : 14} stroke="currentColor" strokeWidth="1.25" />
-        </svg>
-      ))}
-      <span
-        className={`cota-texto relative bg-white lg:bg-papel text-[0.8125rem] font-semibold whitespace-nowrap ${
-          vertical ? 'rotate-180 py-2 [writing-mode:vertical-rl]' : 'px-2'
-        }`}
-      >
-        {rotulo}
-      </span>
-    </div>
-  );
-}
+const claves = [
+  { Icono: CalendarCheck, texto: 'En obra desde 2017' },
+  { Icono: HardHat, texto: 'Diseño, construcción y mantención' },
+  { Icono: Building2, texto: 'Hogares, empresas y colegios' },
+];
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative overflow-hidden pt-16">
-      {/* Papel milimetrado detrás de la foto */}
-      <div className="cuadricula absolute inset-y-0 right-0 hidden w-[44%] bg-papel lg:block" aria-hidden="true" />
+    <section id="inicio">
+      <div className="relative flex min-h-[100svh] items-end overflow-hidden bg-grafito text-white lg:items-center">
+        <img
+          src="/images/paletas.webp"
+          alt=""
+          width={1200}
+          height={1600}
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_40%]"
+        />
+        {/* Velo gris concreto para que el texto se lea sobre la foto */}
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-grafito via-grafito/75 to-grafito/20 lg:bg-gradient-to-r lg:from-grafito/95 lg:via-grafito/70 lg:to-grafito/10"
+          aria-hidden="true"
+        />
 
-      <div className="relative mx-auto grid max-w-7xl gap-14 px-5 pt-12 pb-20 sm:px-8 lg:grid-cols-12 lg:items-center lg:gap-8 lg:pt-20 lg:pb-28">
-        <div className="lg:col-span-7">
-          <h1 className="titulo-ancho text-[2.15rem] min-[400px]:text-[2.4rem] sm:text-6xl xl:text-7xl">
-            Diseñamos, construimos y mantenemos tus espacios.
-          </h1>
-          <p className="mt-7 max-w-xl text-lg text-pretty text-gris sm:text-xl">
-            Hogares, oficinas, locales comerciales, condominios y colegios. Un solo equipo se encarga de tu proyecto de
-            principio a fin y te mantiene al tanto en cada etapa. Trabajamos en Chile desde 2017.
-          </p>
+        <div className="relative mx-auto w-full max-w-7xl px-5 pt-32 pb-14 sm:px-8 lg:py-36">
+          <div className="max-w-2xl">
+            <h1 className="text-[2.75rem] font-extrabold sm:text-6xl lg:text-7xl">
+              Diseñamos, construimos y mantenemos tus espacios
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-white/90 sm:text-xl">
+              Hogares, oficinas, locales comerciales, condominios y colegios. Un solo equipo a cargo de tu proyecto, de
+              principio a fin.
+            </p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href="#contacto" className="boton boton-cyan">
-              Cotizar proyecto
-            </a>
-            <a href="#proyectos" className="boton boton-borde">
-              Ver proyectos
-            </a>
-          </div>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a href="#contacto" className="boton boton-cielo">
+                Cotizar proyecto
+              </a>
+              <a href="#proyectos" className="boton boton-claro">
+                Ver proyectos
+              </a>
+            </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-gris">
-            <a href={contacto.telefonoHref} className="flex items-center gap-2 font-semibold text-marino">
-              <Phone size={18} className="text-tinta" aria-hidden="true" />
-              {contacto.telefono}
-            </a>
-            <a
-              href={contacto.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 font-semibold text-marino"
-            >
-              <MessageCircle size={18} className="text-tinta" aria-hidden="true" />
-              Escribir por WhatsApp
-            </a>
+            <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 font-semibold">
+              <a href={contacto.telefonoHref} className="flex items-center gap-2 hover:text-cielo">
+                <Phone size={19} aria-hidden="true" />
+                {contacto.telefono}
+              </a>
+              <a
+                href={contacto.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-cielo"
+              >
+                <MessageCircle size={19} aria-hidden="true" />
+                Escribir por WhatsApp
+              </a>
+            </div>
           </div>
         </div>
 
-        <figure className="relative mx-auto w-full max-w-md pt-9 pr-9 lg:col-span-5 lg:max-w-none lg:pl-6">
-          <div className="relative">
-            <Cota rotulo="Local Le Fournil" orientacion="horizontal" />
-            <Cota rotulo="Mall Plaza" orientacion="vertical" />
-            <img
-              src="/images/fournil.webp"
-              alt="Local Le Fournil remodelado por C-MVT, con cielo de madera y muros de ladrillo"
-              width={1200}
-              height={1600}
-              className="aspect-[4/5] w-full object-cover"
-              fetchPriority="high"
-            />
-          </div>
-          <figcaption className="mt-4 text-sm text-gris">Remodelación general del local Le Fournil.</figcaption>
-        </figure>
+        <p className="absolute right-5 bottom-4 hidden text-sm text-white/75 sm:right-8 lg:block">
+          Terrazas de Paletas, remodeladas por C-MVT
+        </p>
+      </div>
+
+      {/* Franja cyan cielo con lo esencial de la empresa */}
+      <div className="bg-cielo">
+        <ul className="mx-auto grid max-w-7xl gap-5 px-5 py-7 sm:px-8 md:grid-cols-3 md:gap-8">
+          {claves.map(({ Icono, texto }) => (
+            <li key={texto} className="flex items-center gap-4">
+              <Icono size={30} strokeWidth={1.75} aria-hidden="true" className="shrink-0" />
+              <span className="font-titulo text-xl font-bold">{texto}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

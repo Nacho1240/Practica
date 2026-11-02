@@ -8,8 +8,8 @@ Es una página única (*single page*) con navegación por secciones:
 
 | Sección | Componente | Descripción |
 |---|---|---|
-| Inicio | `Hero.tsx` | Portada con mensaje principal, contacto directo y foto de obra enmarcada con cotas de plano |
-| Nosotros | `About.tsx` | Presentación y valores de la empresa |
+| Inicio | `Hero.tsx` | Portada a pantalla completa con foto de obra, contacto directo y franja con lo esencial de la empresa |
+| Nosotros | `About.tsx` | Presentación, foto de obra y valores de la empresa |
 | Servicios | `Services.tsx` | Oficinas y retail, hogares y condominios, centros educativos, diseño y mantención |
 | Proyectos | `Gallery.tsx` | Obras realizadas (Happyland, Paletas, Metro Vicente Valdés, entre otras), con vista ampliada de cada foto |
 | Clientes | `Clients.tsx` | Logos de empresas clientes |
@@ -21,9 +21,19 @@ La barra de navegación (`Navbar.tsx`) es fija, muestra el teléfono en escritor
 
 ## Diseño
 
-Los colores son los de la empresa: blanco y cyan, más el azul marino del logo para textos y fondos oscuros. Están definidos en `src/styles/theme.css`. La tipografía es [Archivo](https://fonts.google.com/specimen/Archivo), incluida en el proyecto (no se carga desde Google): los títulos usan su versión ancha.
+Los colores son los de la empresa: **cyan como el cielo, blanco como los camiones de carga y gris como el concreto**. Están definidos en `src/styles/theme.css`:
 
-El cyan de marca (`cyan-marca`) no tiene contraste suficiente con texto blanco, por eso los botones cyan llevan texto azul marino. Para textos y enlaces en cyan se usa `tinta`, un tono más oscuro.
+| Nombre | Color | Uso |
+|---|---|---|
+| `cielo` | `#29B6F6` | Botones, franjas y bloques destacados |
+| `cielo-tinta` | `#0369A1` | Textos y enlaces cyan sobre blanco |
+| `concreto` | `#EEF0F1` | Fondos claros |
+| `gris` | `#5C656B` | Texto secundario |
+| `grafito` | `#2B3135` | Texto principal, galería y pie de página |
+
+El cyan cielo no tiene contraste suficiente con texto blanco, por eso los botones y bloques cyan llevan texto grafito.
+
+La tipografía es [Barlow](https://fonts.google.com/specimen/Barlow), inspirada en la señalética de carreteras: Barlow Semi Condensed en los títulos y Barlow en el texto. Está incluida en el proyecto, así que no se carga desde Google.
 
 ## Tecnologías
 
