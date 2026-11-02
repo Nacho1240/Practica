@@ -72,8 +72,3 @@ El proyecto está en proceso de modernización y corrección de errores. Algunos
 - Quedan archivos de la plantilla inicial de Vite sin uso (`src/App.tsx`, `src/assets/react.svg`, `src/assets/vite.svg`, `src/assets/hero.png`).
 - `package.json` incluye dependencias que no parecen usarse (`lucide-react-native`, `native`, `source`, `lucide`).
 
-## Contacto
-
-- Email: Felizondo@c-mvt.com
-- Teléfono / WhatsApp: +56 9 4955 7975
-- Instagram: [@constructoracmvt](https://www.instagram.com/constructoracmvt)
