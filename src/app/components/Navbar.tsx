@@ -1,6 +1,7 @@
 import { Menu, Phone, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { contacto, secciones } from '../datos';
+import { Logo } from './Logo';
 
 export function Navbar() {
   const [abierto, setAbierto] = useState(false);
@@ -24,9 +25,8 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-8" aria-label="Principal">
-        <a href="#inicio" className="flex items-center gap-3" onClick={cerrar}>
-          <img src="/Logo.png" alt="" className="h-10 w-auto rounded-sm" />
-          <span className="font-titulo text-2xl font-extrabold tracking-wide">C-MVT</span>
+        <a href="#inicio" onClick={cerrar}>
+          <Logo tono={solida ? 'oscuro' : 'claro'} />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

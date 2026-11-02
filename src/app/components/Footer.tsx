@@ -1,5 +1,6 @@
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { contacto, secciones } from '../datos';
+import { Logo } from './Logo';
 
 const redes = [
   { nombre: 'Instagram', href: contacto.instagram, Icono: FaInstagram },
@@ -15,10 +16,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-5 pt-16 pb-10 sm:px-8">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-3">
-              <img src="/Logo.png" alt="" className="h-11 w-auto rounded-sm" />
-              <span className="font-titulo text-2xl font-extrabold tracking-wide">C-MVT</span>
-            </div>
+            <Logo tono="claro" />
             <p className="mt-5 max-w-sm text-concreto-medio">
               Diseño, construcción y mantención para hogares, oficinas, retail, condominios y colegios desde 2017.
             </p>

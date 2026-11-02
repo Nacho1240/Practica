@@ -35,6 +35,21 @@ El cyan cielo no tiene contraste suficiente con texto blanco, por eso los botone
 
 La tipografía es [Barlow](https://fonts.google.com/specimen/Barlow), inspirada en la señalética de carreteras: Barlow Semi Condensed en los títulos y Barlow en el texto. Está incluida en el proyecto, así que no se carga desde Google.
 
+### Logo
+
+El logo es una casa grande gris con una casa cyan cielo por delante. En el sitio se dibuja con el componente `src/app/components/Logo.tsx`, que tiene una versión para fondos claros y otra para fondos oscuros o fotos.
+
+Los archivos para usar fuera del sitio (redes sociales, documentos, firma de correo) están en `public/marca/`:
+
+| Archivo | Uso |
+|---|---|
+| `logo-cmvt.svg` / `.png` | Logo completo para fondos claros |
+| `logo-cmvt-blanco.svg` / `.png` | Logo completo para fondos oscuros |
+| `icono-cmvt.svg` / `icono-cmvt-blanco.svg` | Solo el ícono |
+| `icono-cmvt-512.png` | Foto de perfil en redes sociales |
+
+Los SVG tienen el texto convertido en trazos, así que se ven igual en cualquier equipo aunque no tenga la tipografía instalada. El ícono de la pestaña del navegador es `public/favicon.svg` y se adapta al modo oscuro.
+
 ## Tecnologías
 
 - [React 19](https://react.dev/) + TypeScript
