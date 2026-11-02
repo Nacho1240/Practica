@@ -1,6 +1,6 @@
 # C-MVT — Sitio web corporativo
 
-Sitio web de **C-MVT**, empresa chilena de diseño, construcción y mantenimiento fundada en 2017. La página presenta a la empresa, sus servicios, una galería de proyectos realizados, los clientes que han confiado en ella y un formulario de contacto.
+Sitio web de **C-MVT**, empresa chilena de diseño, construcción y mantenimiento fundada en 2017. La página presenta a la empresa, sus servicios, una galería de proyectos realizados, los clientes que han confiado en ella y sus datos de contacto.
 
 ## Contenido del sitio
 
@@ -14,7 +14,7 @@ Es una página única (*single page*) con navegación por secciones:
 | Proyectos | `Gallery.tsx` | Obras realizadas (Happyland, Paletas, Metro Vicente Valdés, entre otras), con vista ampliada de cada foto |
 | Clientes | `Clients.tsx` | Logos de empresas clientes |
 | Testimonios | `Testimonials.tsx` | Opiniones de clientes |
-| Contacto | `Contact.tsx` | Datos de contacto, WhatsApp y formulario |
+| Contacto | `Contact.tsx` | Teléfono, WhatsApp, email y horario de atención |
 | Pie de página | `Footer.tsx` | Enlaces rápidos y redes sociales |
 
 La barra de navegación (`Navbar.tsx`) es fija, muestra el teléfono en escritorio y tiene menú desplegable en móvil.
@@ -110,12 +110,6 @@ Además, el sitio usa solo 4 dependencias de producción (`react`, `react-dom`, 
 - **Clientes:** agregar el logo en `public/logos/` y una entrada en el arreglo `clientes` de `src/app/components/Clients.tsx`.
 - **Datos de contacto:** `src/app/datos.ts`. Se actualizan solos en la barra, la portada, la sección de contacto y el pie de página.
 - **Servicios y textos de la empresa:** `Services.tsx` y `About.tsx`.
-
-## Estado actual y pendientes conocidos
-
-El proyecto está en proceso de modernización y corrección de errores.
-
-- El formulario de contacto muestra un mensaje de confirmación pero no envía los datos a ningún destino. Por decisión del cliente se mantiene así, para evitar mensajes automáticos de bots; el contacto principal es por teléfono, WhatsApp y email.
 
 ## Contacto
 
