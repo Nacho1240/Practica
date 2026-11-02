@@ -1,6 +1,12 @@
-import { CheckCircle, Mail, MessageCircle } from 'lucide-react';
+import { CheckCircle, Mail, MessageCircle, Phone } from 'lucide-react';
 import { useState } from 'react';
 import { contacto } from '../datos';
+
+const medios = [
+  { Icono: Phone, etiqueta: 'Teléfono', valor: contacto.telefono, href: contacto.telefonoHref, externo: false },
+  { Icono: MessageCircle, etiqueta: 'WhatsApp', valor: 'Escríbenos', href: contacto.whatsappHref, externo: true },
+  { Icono: Mail, etiqueta: 'Email', valor: contacto.email, href: contacto.emailHref, externo: false },
+];
 
 const campo =
   'w-full rounded-md border border-grafito/25 bg-white px-4 py-3 text-grafito placeholder:text-gris/70 transition-colors focus:border-cielo-tinta focus:outline-2 focus:outline-offset-0 focus:outline-cielo-tinta';
@@ -21,47 +27,39 @@ export function Contact() {
   };
 
   return (
-    <section id="contacto" className="bg-cielo">
+    <section id="contacto" className="border-t-4 border-cielo bg-white">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:py-28">
         <div className="lg:col-span-6">
           <h2 className="text-4xl sm:text-5xl">Conversemos sobre tu proyecto</h2>
-          <p className="mt-6 max-w-md text-lg">
+          <p className="mt-6 max-w-md text-lg text-gris">
             Llámanos o escríbenos y te ayudamos a definir el alcance, los plazos y una cotización.
           </p>
 
-          <a
-            href={contacto.telefonoHref}
-            className="mt-10 inline-block font-titulo text-[2.25rem] font-extrabold decoration-2 underline-offset-8 hover:underline sm:text-5xl"
-          >
-            {contacto.telefono}
-          </a>
-
-          <ul className="mt-8 space-y-3 text-lg">
-            <li>
-              <a
-                href={contacto.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
-              >
-                <MessageCircle size={22} aria-hidden="true" />
-                Escribir por WhatsApp
-              </a>
-            </li>
-            <li>
-              <a
-                href={contacto.emailHref}
-                className="inline-flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
-              >
-                <Mail size={22} aria-hidden="true" />
-                {contacto.email}
-              </a>
-            </li>
+          <ul className="mt-10 divide-y divide-concreto-medio/60 border-y border-concreto-medio/60">
+            {medios.map(({ Icono, etiqueta, valor, href, externo }) => (
+              <li key={etiqueta}>
+                <a
+                  href={href}
+                  {...(externo ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className="group flex items-center gap-5 py-5"
+                >
+                  <span className="grid size-12 shrink-0 place-items-center rounded-full bg-cielo-claro text-cielo-tinta">
+                    <Icono size={22} aria-hidden="true" />
+                  </span>
+                  <span>
+                    <span className="block text-sm text-gris">{etiqueta}</span>
+                    <span className="block font-titulo text-2xl font-bold group-hover:text-cielo-tinta sm:text-[1.75rem]">
+                      {valor}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
           </ul>
 
-          <div className="mt-12 max-w-sm border-t border-grafito/30 pt-6">
-            <h3 className="font-semibold">Horario de atención</h3>
-            <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1">
+          <div className="mt-10 max-w-sm">
+            <h3 className="text-xl">Horario de atención</h3>
+            <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-gris">
               <dt>Lunes a viernes</dt>
               <dd>9:00 a 18:00</dd>
               <dt>Sábado</dt>
@@ -69,12 +67,12 @@ export function Contact() {
               <dt>Domingo</dt>
               <dd>Cerrado</dd>
             </dl>
-            <p className="mt-4">Trabajamos en Chile.</p>
+            <p className="mt-4 text-gris">Trabajamos en Chile.</p>
           </div>
         </div>
 
         <div className="lg:col-span-5 lg:col-start-8">
-          <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-[0_24px_48px_-16px_rgb(43_49_53/0.35)] sm:p-9">
+          <form onSubmit={handleSubmit} className="rounded-lg bg-concreto p-6 sm:p-9">
             <h3 className="text-3xl">Envíanos un mensaje</h3>
 
             <div className="mt-7 space-y-5">
