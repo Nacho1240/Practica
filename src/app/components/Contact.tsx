@@ -1,13 +1,12 @@
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { CheckCircle, Mail, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
+import { contacto } from '../datos';
+
+const campo =
+  'w-full rounded-sm border border-marino/25 bg-white px-4 py-3 text-marino placeholder:text-gris/70 transition-colors focus:border-tinta focus:outline-2 focus:outline-offset-0 focus:outline-tinta';
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -18,121 +17,120 @@ export function Contact() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <section id="contacto" className="py-20 bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl mb-4 text-white">
-            <span className="text-cyan-400">Contáctanos</span>
-          </h2>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            ¿Tienes un proyecto en mente? Estamos listos para ayudarte a hacerlo realidad
+    <section id="contacto" className="bg-cyan-marca">
+      <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:py-28">
+        <div className="lg:col-span-6">
+          <h2 className="titulo-ancho text-4xl sm:text-5xl">Conversemos sobre tu proyecto</h2>
+          <p className="mt-6 max-w-md text-lg">
+            Llámanos o escríbenos y te ayudamos a definir el alcance, los plazos y una cotización.
           </p>
+
+          <a
+            href={contacto.telefonoHref}
+            className="titulo-ancho mt-10 inline-block text-[2rem] decoration-2 underline-offset-8 hover:underline sm:text-5xl"
+          >
+            {contacto.telefono}
+          </a>
+
+          <ul className="mt-8 space-y-3 text-lg">
+            <li>
+              <a
+                href={contacto.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
+              >
+                <MessageCircle size={22} aria-hidden="true" />
+                Escribir por WhatsApp
+              </a>
+            </li>
+            <li>
+              <a
+                href={contacto.emailHref}
+                className="inline-flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
+              >
+                <Mail size={22} aria-hidden="true" />
+                {contacto.email}
+              </a>
+            </li>
+          </ul>
+
+          <div className="mt-12 max-w-sm border-t border-marino/30 pt-6">
+            <h3 className="font-semibold">Horario de atención</h3>
+            <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1">
+              <dt>Lunes a viernes</dt>
+              <dd>9:00 a 18:00</dd>
+              <dt>Sábado</dt>
+              <dd>9:00 a 14:00</dd>
+              <dt>Domingo</dt>
+              <dd>Cerrado</dd>
+            </dl>
+            <p className="mt-4">Trabajamos en Chile.</p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-2xl text-white mb-6">Información de Contacto</h3>
+        <div className="lg:col-span-5 lg:col-start-8">
+          <form onSubmit={handleSubmit} className="bg-white p-6 shadow-[8px_8px_0_var(--color-marino)] sm:p-9">
+            <h3 className="titulo-medio text-2xl">Envíanos un mensaje</h3>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-cyan-500 p-3 rounded-lg">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-white mb-1">Ubicación</h4>
-                  <p className="text-slate-400">Chile</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-cyan-500 p-3 rounded-lg">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-white mb-1">Teléfono</h4>
-                  <p className="text-slate-400">+56 9 4955 7975</p>
-                  <a href="https://api.whatsapp.com/send?phone=56949557975&text=Hola!%20Necesito%20información"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                    WhatsApp
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-cyan-500 p-3 rounded-lg">
-                  <Mail className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-white mb-1">Email</h4>
-                  <p className="text-slate-400">Felizondo@c-mvt.com</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 bg-slate-800 p-6 rounded-xl border border-slate-700">
-              <h4 className="text-white mb-4">Horario de Atención</h4>
-              <div className="space-y-2 text-slate-400">
-                <p>Lunes - Viernes: 9:00 AM - 6:00 PM</p>
-                <p>Sábado: 9:00 AM - 2:00 PM</p>
-                <p>Domingo: Cerrado</p>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="mt-7 space-y-5">
               <div>
-                <label htmlFor="name" className="block text-white mb-2">Nombre Completo</label>
+                <label htmlFor="name" className="mb-1.5 block font-semibold">
+                  Nombre
+                </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
+                  autoComplete="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
-                  placeholder="Tu nombre"
+                  className={campo}
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-white mb-2">Email</label>
+                <label htmlFor="email" className="mb-1.5 block font-semibold">
+                  Email
+                </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
+                  autoComplete="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                  className={campo}
                   placeholder="tu@email.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-white mb-2">Teléfono</label>
+                <label htmlFor="phone" className="mb-1.5 block font-semibold">
+                  Teléfono <span className="font-normal text-gris">(opcional)</span>
+                </label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
+                  autoComplete="tel"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
-                  placeholder="+56 9 XXXX XXXX"
+                  className={campo}
+                  placeholder="+56 9 1234 5678"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-white mb-2">Mensaje</label>
+                <label htmlFor="message" className="mb-1.5 block font-semibold">
+                  Mensaje
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -140,27 +138,25 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
-                  placeholder="Cuéntanos sobre tu proyecto..."
-                ></textarea>
+                  className={`${campo} resize-y`}
+                  placeholder="Cuéntanos qué necesitas construir, remodelar o mantener"
+                />
               </div>
+            </div>
 
+            <div aria-live="polite">
               {submitted && (
-                <div className="flex items-center gap-3 bg-cyan-500/20 border border-cyan-500 text-cyan-300 px-4 py-3 rounded-lg">
-                  <CheckCircle size={20} />
-                  <span>Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.</span>
-                </div>
+                <p className="mt-5 flex items-center gap-3 rounded-sm bg-papel px-4 py-3">
+                  <CheckCircle size={20} className="shrink-0 text-tinta" aria-hidden="true" />
+                  Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.
+                </p>
               )}
+            </div>
 
-              <button
-                type="submit"
-                className="w-full bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-lg flex items-center justify-center gap-2 transition-all transform hover:scale-105"
-              >
-                Enviar Mensaje
-                <Send size={20} />
-              </button>
-            </form>
-          </div>
+            <button type="submit" className="boton boton-marino mt-6 w-full">
+              Enviar mensaje
+            </button>
+          </form>
         </div>
       </div>
     </section>

@@ -8,17 +8,22 @@ Es una página única (*single page*) con navegación por secciones:
 
 | Sección | Componente | Descripción |
 |---|---|---|
-| Inicio | `Hero.tsx` | Portada con mensaje principal y botones a cotización y proyectos |
-| Nosotros | `About.tsx` | Historia, equipo y valores de la empresa |
-| Servicios | `Services.tsx` | Oficinas y retail, hogares y condominios, centros educativos, diseño y mantenimiento |
-| Cifras | `Stats.tsx` | Indicadores destacados de la empresa |
-| Galería | `Gallery.tsx` | Proyectos realizados (Metro Vicente Valdés, Le Fournil, Happyland, Paletas, entre otros) |
+| Inicio | `Hero.tsx` | Portada con mensaje principal, contacto directo y foto de obra enmarcada con cotas de plano |
+| Nosotros | `About.tsx` | Presentación y valores de la empresa |
+| Servicios | `Services.tsx` | Oficinas y retail, hogares y condominios, centros educativos, diseño y mantención |
+| Proyectos | `Gallery.tsx` | Obras realizadas (Happyland, Paletas, Metro Vicente Valdés, entre otras), con vista ampliada de cada foto |
 | Clientes | `Clients.tsx` | Logos de empresas clientes |
 | Testimonios | `Testimonials.tsx` | Opiniones de clientes |
 | Contacto | `Contact.tsx` | Datos de contacto, WhatsApp y formulario |
 | Pie de página | `Footer.tsx` | Enlaces rápidos y redes sociales |
 
-La barra de navegación (`Navbar.tsx`) es fija y tiene menú desplegable en móvil.
+La barra de navegación (`Navbar.tsx`) es fija, muestra el teléfono en escritorio y tiene menú desplegable en móvil.
+
+## Diseño
+
+Los colores son los de la empresa: blanco y cyan, más el azul marino del logo para textos y fondos oscuros. Están definidos en `src/styles/theme.css`. La tipografía es [Archivo](https://fonts.google.com/specimen/Archivo), incluida en el proyecto (no se carga desde Google): los títulos usan su versión ancha.
+
+El cyan de marca (`cyan-marca`) no tiene contraste suficiente con texto blanco, por eso los botones cyan llevan texto azul marino. Para textos y enlaces en cyan se usa `tinta`, un tono más oscuro.
 
 ## Tecnologías
 
@@ -41,6 +46,7 @@ La barra de navegación (`Navbar.tsx`) es fija y tiene menú desplegable en móv
     ├── main.tsx             # Monta la aplicación
     ├── app/
     │   ├── App.tsx          # Ensambla todas las secciones de la página
+    │   ├── datos.ts         # Teléfono, email, WhatsApp y redes sociales
     │   └── components/      # Secciones del sitio
     └── styles/              # Tailwind y tema de colores
 ```
@@ -75,17 +81,16 @@ Además, el sitio usa solo 4 dependencias de producción (`react`, `react-dom`, 
 
 ## Cómo editar el contenido
 
-- **Proyectos de la galería:** agregar la foto en `public/images/` y una entrada en el arreglo `projects` de `src/app/components/Gallery.tsx`.
-- **Clientes:** agregar el logo en `public/logos/` y una entrada en el arreglo `clients` de `src/app/components/Clients.tsx`.
-- **Datos de contacto:** `src/app/components/Contact.tsx` y `src/app/components/Footer.tsx`.
-- **Servicios y textos de la empresa:** `Services.tsx`, `About.tsx` y `Stats.tsx`.
+- **Proyectos de la galería:** agregar la foto en `public/images/` (de preferencia en formato WebP y de no más de 1600 px por lado) y una entrada en el arreglo `proyectos` de `src/app/components/Gallery.tsx`.
+- **Clientes:** agregar el logo en `public/logos/` y una entrada en el arreglo `clientes` de `src/app/components/Clients.tsx`.
+- **Datos de contacto:** `src/app/datos.ts`. Se actualizan solos en la barra, la portada, la sección de contacto y el pie de página.
+- **Servicios y textos de la empresa:** `Services.tsx` y `About.tsx`.
 
 ## Estado actual y pendientes conocidos
 
-El proyecto está en proceso de modernización y corrección de errores. Algunos puntos detectados:
+El proyecto está en proceso de modernización y corrección de errores.
 
-- El formulario de contacto muestra un mensaje de confirmación pero no envía los datos a ningún destino.
-- Hay tres logos en `public/logos/` que no se muestran en la sección de clientes (`cantabria.jpg`, `fournil.jpg`, `emporio-la-rosa.png`).
+- El formulario de contacto muestra un mensaje de confirmación pero no envía los datos a ningún destino. Por decisión del cliente se mantiene así, para evitar mensajes automáticos de bots; el contacto principal es por teléfono, WhatsApp y email.
 
 ## Contacto
 

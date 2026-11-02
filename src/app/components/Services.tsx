@@ -1,67 +1,66 @@
-import { Building2, Home, Factory, Hammer } from 'lucide-react';
+import { Building2, GraduationCap, Home, Ruler } from 'lucide-react';
+
+const servicios = [
+  {
+    icono: Building2,
+    titulo: 'Oficinas y retail',
+    texto: 'Espacios comerciales y corporativos pensados para el trabajo diario y la experiencia de tus clientes.',
+    incluye: ['Oficinas corporativas', 'Locales comerciales', 'Centros comerciales'],
+  },
+  {
+    icono: Home,
+    titulo: 'Hogares y condominios',
+    texto: 'Proyectos residenciales que combinan confort, diseño y funcionalidad.',
+    incluye: ['Viviendas personalizadas', 'Condominios', 'Remodelaciones'],
+  },
+  {
+    icono: GraduationCap,
+    titulo: 'Centros educativos',
+    texto: 'Infraestructura para aprender y enseñar en buenas condiciones.',
+    incluye: ['Colegios', 'Universidades', 'Centros de capacitación'],
+  },
+  {
+    icono: Ruler,
+    titulo: 'Diseño y mantención',
+    texto: 'Diseño arquitectónico antes de la obra y mantención continua después de la entrega.',
+    incluye: ['Diseño arquitectónico', 'Mantención preventiva', 'Renovaciones'],
+  },
+];
 
 export function Services() {
-  const services = [
-    {
-      icon: <Building2 className="w-12 h-12 text-cyan-400" />,
-      title: 'Oficinas y Retail',
-      description: 'Espacios comerciales y corporativos diseñados para maximizar la productividad y experiencia del cliente.',
-      features: ['Oficinas corporativas', 'Locales retail', 'Centros comerciales']
-    },
-    {
-      icon: <Home className="w-12 h-12 text-cyan-400" />,
-      title: 'Hogares y Condominios',
-      description: 'Proyectos residenciales que combinan confort, diseño y funcionalidad para crear espacios únicos.',
-      features: ['Viviendas personalizadas', 'Condominios', 'Remodelaciones']
-    },
-    {
-      icon: <Factory className="w-12 h-12 text-cyan-400" />,
-      title: 'Centros Educativos',
-      description: 'Infraestructura educativa diseñada para crear ambientes óptimos de aprendizaje y desarrollo.',
-      features: ['Colegios', 'Universidades', 'Centros de capacitación']
-    },
-    {
-      icon: <Hammer className="w-12 h-12 text-cyan-400" />,
-      title: 'Diseño y Mantenimiento',
-      description: 'Soluciones integrales que incluyen diseño arquitectónico y servicios de mantenimiento continuo.',
-      features: ['Diseño arquitectónico', 'Mantenimiento preventivo', 'Renovaciones']
-    }
-  ];
-
   return (
-    <section id="servicios" className="py-20 bg-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl mb-4 text-white">
-            Nuestros <span className="text-cyan-400">Servicios</span>
-          </h2>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            Soluciones integrales de construcción adaptadas a cada tipo de proyecto
+    <section id="servicios" className="bg-papel">
+      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-8">
+          <h2 className="titulo-ancho text-4xl sm:text-5xl lg:col-span-6">Qué hacemos</h2>
+          <p className="max-w-lg text-lg text-gris lg:col-span-5 lg:col-start-8">
+            Trabajamos en cuatro tipos de proyecto. En todos podemos hacernos cargo del diseño, la obra y la mantención.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-slate-900 p-6 rounded-xl hover:transform hover:scale-105 transition-all duration-300 border border-slate-700 hover:border-cyan-400"
+        <ul className="mt-14 border-b border-marino/25">
+          {servicios.map(({ icono: Icono, titulo, texto, incluye }) => (
+            <li
+              key={titulo}
+              className="grid gap-4 border-t border-marino/25 py-8 md:grid-cols-12 md:gap-8 lg:py-10"
             >
-              <div className="mb-4">
-                {service.icon}
+              <div className="flex items-center gap-4 md:col-span-5 lg:col-span-4">
+                <span className="grid size-12 shrink-0 place-items-center rounded-full bg-cyan-marca">
+                  <Icono size={22} strokeWidth={1.75} aria-hidden="true" />
+                </span>
+                <h3 className="titulo-medio text-2xl">{titulo}</h3>
               </div>
-              <h3 className="text-xl text-white mb-3">{service.title}</h3>
-              <p className="text-slate-400 mb-4">{service.description}</p>
-              <ul className="space-y-2">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="text-sm text-slate-500 flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></div>
-                    {feature}
+              <p className="text-gris md:col-span-7 lg:col-span-4">{texto}</p>
+              <ul className="flex flex-wrap gap-2 md:col-span-7 md:col-start-6 lg:col-span-4 lg:col-start-9 lg:justify-end">
+                {incluye.map((item) => (
+                  <li key={item} className="rounded-full border border-marino/20 bg-white px-3 py-1 text-sm">
+                    {item}
                   </li>
                 ))}
               </ul>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

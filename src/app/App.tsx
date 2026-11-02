@@ -2,7 +2,6 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Services } from './components/Services';
-import { Stats } from './components/Stats';
 import { Gallery } from './components/Gallery';
 import { Clients } from './components/Clients';
 import { Testimonials } from './components/Testimonials';
@@ -11,17 +10,18 @@ import { Footer } from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-slate-900">
+    <>
       <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Stats />
-      <Gallery />
-      <Clients />
-      <Testimonials />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Gallery />
+        <Clients />
+        <Testimonials />
+        <Contact />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }

@@ -1,57 +1,77 @@
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { contacto, secciones } from '../datos';
+
+const redes = [
+  { nombre: 'Instagram', href: contacto.instagram, Icono: FaInstagram },
+  { nombre: 'Facebook', href: contacto.facebook, Icono: FaFacebook },
+  { nombre: 'WhatsApp', href: contacto.whatsappHref, Icono: FaWhatsapp },
+];
+
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  const anio = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-950 text-slate-400 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <h3 className="text-2xl text-cyan-400 mb-4">C-MVT</h3>
-            <p className="text-sm">
-              Soluciones integrales en diseño, construcción y mantenimiento con transparencia y calidad desde 2017.
+    <footer className="bg-marino text-white">
+      <div className="mx-auto max-w-7xl px-5 pt-16 pb-10 sm:px-8">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-3">
+              <img src="/Logo.png" alt="" className="h-11 w-auto" />
+              <span className="titulo-ancho text-2xl">C-MVT</span>
+            </div>
+            <p className="mt-5 max-w-sm text-niebla">
+              Diseño, construcción y mantención para hogares, oficinas, retail, condominios y colegios desde 2017.
             </p>
           </div>
 
-          <div>
-            <h4 className="text-white mb-4">Enlaces Rápidos</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#inicio" className="hover:text-cyan-400 transition-colors">Inicio</a></li>
-              <li><a href="#nosotros" className="hover:text-cyan-400 transition-colors">Nosotros</a></li>
-              <li><a href="#servicios" className="hover:text-cyan-400 transition-colors">Servicios</a></li>
-              <li><a href="#galeria" className="hover:text-cyan-400 transition-colors">Galería</a></li>
+          <nav className="md:col-span-3" aria-label="Secciones">
+            <h2 className="font-semibold text-cyan-claro">Secciones</h2>
+            <ul className="mt-4 space-y-2">
+              {secciones.map((s) => (
+                <li key={s.id}>
+                  <a href={`#${s.id}`} className="text-niebla hover:text-white">
+                    {s.nombre}
+                  </a>
+                </li>
+              ))}
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h4 className="text-white mb-4">Servicios</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#servicios" className="hover:text-cyan-400 transition-colors">Construcción Comercial</a></li>
-              <li><a href="#servicios" className="hover:text-cyan-400 transition-colors">Proyectos Residenciales</a></li>
-              <li><a href="#servicios" className="hover:text-cyan-400 transition-colors">Obras Industriales</a></li>
-              <li><a href="#servicios" className="hover:text-cyan-400 transition-colors">Remodelación</a></li>
+          <div className="md:col-span-4">
+            <h2 className="font-semibold text-cyan-claro">Contacto</h2>
+            <ul className="mt-4 space-y-2 text-niebla">
+              <li>
+                <a href={contacto.telefonoHref} className="hover:text-white">
+                  {contacto.telefono}
+                </a>
+              </li>
+              <li>
+                <a href={contacto.emailHref} className="hover:text-white">
+                  {contacto.email}
+                </a>
+              </li>
             </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white mb-4">Síguenos</h4>
-            <div className="flex gap-4">
-              <a href="https://www.facebook.com/profile.php?id=100008842242563" target="_blank" rel="noopener noreferrer" className="bg-slate-800 p-2 rounded-lg hover:bg-cyan-500 transition-colors">
-                <FaFacebook size={20} />
-              </a>
-              <a href="https://www.instagram.com/constructoracmvt" target="_blank" rel="noopener noreferrer" className="bg-slate-800 p-2 rounded-lg hover:bg-cyan-500 transition-colors">
-                <FaInstagram size={20} />
-              </a>
-              <a href="https://api.whatsapp.com/send?phone=56949557975&text=Hola!%20Necesito%20información" target="_blank" rel="noopener noreferrer" className="bg-slate-800 p-2 rounded-lg hover:bg-cyan-500 transition-colors">
-                <FaWhatsapp size={20} />
-              </a>
-            </div>
+            <ul className="mt-6 flex gap-3">
+              {redes.map(({ nombre, href, Icono }) => (
+                <li key={nombre}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={nombre}
+                    className="grid size-11 place-items-center rounded-full border border-white/25 transition-colors hover:border-cyan-marca hover:bg-cyan-marca hover:text-marino"
+                  >
+                    <Icono size={19} />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8 text-center text-sm">
-          <p>&copy; {currentYear} C-MVT. Todos los derechos reservados.</p>
-        </div>
+        <p className="mt-14 border-t border-white/15 pt-6 text-sm text-niebla">
+          © {anio} C-MVT. Todos los derechos reservados.
+        </p>
       </div>
     </footer>
   );
