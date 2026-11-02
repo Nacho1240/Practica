@@ -25,13 +25,14 @@ La barra de navegación (`Navbar.tsx`) es fija y tiene menú desplegable en móv
 - [React 19](https://react.dev/) + TypeScript
 - [Vite](https://vite.dev/) como servidor de desarrollo y empaquetador
 - [Tailwind CSS 4](https://tailwindcss.com/) para estilos
-- Componentes de UI basados en [Radix UI](https://www.radix-ui.com/) (estilo shadcn/ui) en `src/app/components/ui/`
+- [pnpm](https://pnpm.io/) como gestor de paquetes
 - Íconos de [lucide-react](https://lucide.dev/) y [react-icons](https://react-icons.github.io/react-icons/)
 
 ## Estructura del proyecto
 
 ```
 ├── index.html               # Punto de entrada HTML
+├── pnpm-workspace.yaml      # Configuración de seguridad de pnpm
 ├── public/
 │   ├── Logo.png             # Logo de la empresa (también usado como favicon)
 │   ├── images/              # Fotos de proyectos para la galería
@@ -40,21 +41,37 @@ La barra de navegación (`Navbar.tsx`) es fija y tiene menú desplegable en móv
     ├── main.tsx             # Monta la aplicación
     ├── app/
     │   ├── App.tsx          # Ensambla todas las secciones de la página
-    │   └── components/      # Secciones del sitio + componentes de UI
-    └── styles/              # Tailwind, tema, fuentes y estilos globales
+    │   └── components/      # Secciones del sitio
+    └── styles/              # Tailwind y tema de colores
 ```
 
 ## Cómo ejecutarlo
 
-Requisitos: [Node.js](https://nodejs.org/) 20 o superior.
+Requisitos: [Node.js](https://nodejs.org/) 20.19 o superior y pnpm. La forma más simple de obtener pnpm es activarlo con Corepack, que viene incluido en Node; Corepack usará automáticamente la versión indicada en `package.json`:
 
 ```bash
-npm install       # instala dependencias
-npm run dev       # servidor de desarrollo en http://localhost:5173
-npm run build     # genera la versión de producción en dist/
-npm run preview   # sirve localmente la versión de producción
-npm run lint      # revisa el código con ESLint
+corepack enable
 ```
+
+Luego, en la carpeta del proyecto:
+
+```bash
+pnpm install      # instala dependencias
+pnpm dev          # servidor de desarrollo en http://localhost:5173
+pnpm build        # genera la versión de producción en dist/
+pnpm preview      # sirve localmente la versión de producción
+pnpm lint         # revisa el código con ESLint
+pnpm audit        # revisa vulnerabilidades conocidas en las dependencias
+```
+
+### Seguridad de dependencias
+
+El proyecto usa pnpm en lugar de npm. En `pnpm-workspace.yaml` está configurado para:
+
+- **No instalar versiones publicadas hace menos de 24 horas.** La mayoría de los paquetes maliciosos se detectan y retiran en ese plazo.
+- **No ejecutar scripts de instalación de las dependencias** salvo autorización explícita, para que un paquete comprometido no pueda ejecutar código al instalarse.
+
+Además, el sitio usa solo 4 dependencias de producción (`react`, `react-dom`, `lucide-react` y `react-icons`), lo que reduce la superficie de ataque. El archivo `pnpm-lock.yaml` fija las versiones exactas y debe incluirse en cada commit que cambie dependencias.
 
 ## Cómo editar el contenido
 
@@ -67,10 +84,8 @@ npm run lint      # revisa el código con ESLint
 
 El proyecto está en proceso de modernización y corrección de errores. Algunos puntos detectados:
 
-- La carpeta `node_modules/` está versionada en el repositorio aunque figura en `.gitignore`; debería eliminarse del control de versiones.
 - El formulario de contacto muestra un mensaje de confirmación pero no envía los datos a ningún destino.
-- Quedan archivos de la plantilla inicial de Vite sin uso (`src/App.tsx`, `src/assets/react.svg`, `src/assets/vite.svg`, `src/assets/hero.png`).
-- `package.json` incluye dependencias que no parecen usarse (`lucide-react-native`, `native`, `source`, `lucide`).
+- Hay tres logos en `public/logos/` que no se muestran en la sección de clientes (`cantabria.jpg`, `fournil.jpg`, `emporio-la-rosa.png`).
 
 ## Contacto
 
