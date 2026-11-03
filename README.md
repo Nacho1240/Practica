@@ -81,11 +81,13 @@ Los SVG tienen el texto convertido en trazos, así que se ven igual en cualquier
 
 ## Cómo ejecutarlo
 
-Requisitos: [Node.js](https://nodejs.org/) 20.19 o superior y pnpm. La forma más simple de obtener pnpm es activarlo con Corepack, que viene incluido en Node; Corepack usará automáticamente la versión indicada en `package.json`:
+Requisitos: [Node.js](https://nodejs.org/) 20.19 o superior y pnpm. La forma más simple de obtener pnpm es activarlo con Corepack, que usa automáticamente la versión indicada en `package.json`:
 
 ```bash
 corepack enable
 ```
+
+Corepack viene incluido en Node hasta la versión 24. Desde Node 25 hay que instalarlo antes con `npm install -g corepack`. En Windows, si `corepack enable` da un error de permisos (`EPERM`), hay que ejecutarlo en una terminal abierta como administrador, o instalar pnpm con `winget install -e --id pnpm.pnpm`.
 
 Luego, en la carpeta del proyecto:
 
@@ -106,6 +108,20 @@ El proyecto usa pnpm en lugar de npm. En `pnpm-workspace.yaml` está configurado
 - **No ejecutar scripts de instalación de las dependencias** salvo autorización explícita, para que un paquete comprometido no pueda ejecutar código al instalarse.
 
 Además, el sitio usa solo 6 dependencias de producción (`react`, `react-dom`, `lucide-react`, `react-icons` y los dos paquetes de la tipografía Barlow), lo que reduce la superficie de ataque. El archivo `pnpm-lock.yaml` fija las versiones exactas y debe incluirse en cada commit que cambie dependencias.
+
+## Publicación
+
+El sitio está publicado en [Render](https://render.com/) como sitio estático y se actualiza solo con cada cambio en la rama `main`. Configuración del servicio:
+
+| Opción | Valor |
+|---|---|
+| Build Command | `corepack pnpm install --frozen-lockfile && corepack pnpm build` |
+| Publish Directory | `dist` |
+| Variable de entorno | `SKIP_INSTALL_DEPS=true` |
+
+No hay que usar `corepack enable` en Render: intenta escribir en `/usr/bin`, que es de solo lectura, y la compilación falla con `EROFS`. Anteponer `corepack` a cada comando usa la versión de pnpm fijada en `package.json` sin tocar el sistema. Si una compilación falla, Render mantiene publicada la versión anterior.
+
+Para trabajar se usa la rama `desarrollo`, y los cambios pasan a `main` mediante un pull request.
 
 ## Cómo editar el contenido
 
