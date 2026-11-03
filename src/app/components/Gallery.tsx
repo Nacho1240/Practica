@@ -18,8 +18,9 @@ const proyectos: Proyecto[] = [
     titulo: 'Local Happyland',
     tipo: 'Comercial',
     descripcion: 'Remodelación y habilitación de local retail en San Bernardo.',
-    columnas: 'lg:col-span-7',
-    alto: 'lg:h-[30rem]',
+    // En tablet ocupa todo el ancho para que las cinco fotos queden parejas
+    columnas: 'sm:col-span-2 lg:col-span-7',
+    alto: 'sm:aspect-[16/9] lg:h-[30rem]',
   },
   {
     imagen: '/images/fournil.webp',
@@ -34,31 +35,23 @@ const proyectos: Proyecto[] = [
     titulo: 'Terrazas de Paletas',
     tipo: 'Comercial',
     descripcion: 'Remodelación y habilitación de las terrazas del local.',
-    columnas: 'lg:col-span-5',
-    alto: 'lg:h-[30rem]',
-  },
-  {
-    imagen: '/images/remodelacion.webp',
-    titulo: 'Colegio en Lo Abarca',
-    tipo: 'Institucional',
-    descripcion: 'Remodelación general del colegio.',
-    columnas: 'lg:col-span-7',
-    alto: 'lg:h-[30rem]',
+    columnas: 'lg:col-span-4',
+    alto: 'lg:h-[26rem]',
   },
   {
     imagen: '/images/metro2.webp',
     titulo: 'Local en Metro Vicente Valdés',
     tipo: 'Comercial',
     descripcion: 'Construcción del local DGL en la estación Vicente Valdés.',
-    columnas: 'lg:col-span-6',
+    columnas: 'lg:col-span-4',
     alto: 'lg:h-[26rem]',
   },
   {
-    imagen: '/images/pisos.webp',
-    titulo: 'Techumbres en Cajón del Maipo',
-    tipo: 'Residencial',
-    descripcion: 'Construcción y mantención de techumbres en viviendas.',
-    columnas: 'lg:col-span-6',
+    imagen: '/images/remodelacion.webp',
+    titulo: 'Colegio en Lo Abarca',
+    tipo: 'Institucional',
+    descripcion: 'Remodelación general del colegio.',
+    columnas: 'lg:col-span-4',
     alto: 'lg:h-[26rem]',
   },
 ];
@@ -79,8 +72,8 @@ export function Gallery() {
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
           <h2 className="text-4xl sm:text-5xl">Obras realizadas</h2>
           <p className="max-w-lg text-lg text-concreto-medio">
-            Algunos de los proyectos que hemos entregado en locales comerciales, colegios y viviendas. Toca una foto para
-            verla completa.
+            Algunos de los proyectos que hemos entregado en locales comerciales y colegios. Toca una foto para verla
+            completa.
           </p>
         </div>
 
@@ -90,7 +83,7 @@ export function Gallery() {
               <button
                 type="button"
                 onClick={() => abrir(p)}
-                className={`group relative block aspect-[4/3] w-full overflow-hidden rounded-lg bg-black text-left lg:aspect-auto ${p.alto}`}
+                className={`group relative block aspect-[4/3] w-full overflow-hidden rounded-lg bg-black text-left ${p.alto} lg:aspect-auto`}
                 aria-label={`Ampliar foto: ${p.titulo}`}
               >
                 <ImageWithFallback

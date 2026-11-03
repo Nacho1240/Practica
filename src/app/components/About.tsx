@@ -45,15 +45,15 @@ export function About() {
             {/* Bloque cyan cielo detrás de la foto */}
             <div className="absolute top-8 right-0 bottom-0 left-8 rounded-lg bg-cielo" aria-hidden="true" />
             <img
-              src="/images/pisos.webp"
-              alt="Trabajador de C-MVT construyendo una techumbre en el Cajón del Maipo, con la cordillera de fondo"
-              width={774}
-              height={1032}
+              src="/images/fournil.webp"
+              alt="Local Le Fournil remodelado por C-MVT, con muros de ladrillo y puertas de madera"
+              width={1200}
+              height={1600}
               loading="lazy"
-              className="relative aspect-[4/3] w-full rounded-lg object-cover object-[50%_35%]"
+              className="relative aspect-[4/3] w-full rounded-lg object-cover object-[50%_55%]"
             />
           </div>
-          <figcaption className="mt-3 text-sm text-gris">Techumbres en el Cajón del Maipo.</figcaption>
+          <figcaption className="mt-3 text-sm text-gris">Remodelación del local Le Fournil, en Mall Plaza.</figcaption>
         </figure>
       </div>
 
