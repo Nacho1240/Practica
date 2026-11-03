@@ -1,0 +1,16 @@
+# Configuración de pnpm para este proyecto.
+
+# Solo instala versiones publicadas hace al menos 1 día (1440 minutos).
+# La mayoría de los paquetes maliciosos se detectan y retiran de npm en
+# pocas horas, así que esta espera evita instalarlos por accidente.
+minimumReleaseAge: 1440
+
+# pnpm no ejecuta scripts de instalación (postinstall, etc.) de las
+# dependencias salvo que se autoricen aquí. Así un paquete comprometido no
+# puede ejecutar código en tu equipo al instalarse. Hoy ninguna dependencia
+# lo necesita; si alguna lo pide, pnpm avisará y se puede revisar con
+# `pnpm approve-builds`.
+onlyBuiltDependencies: []
+
+# Rechaza la instalación si la versión de Node no cumple "engines".
+engineStrict: true

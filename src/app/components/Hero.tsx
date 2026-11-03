@@ -1,55 +1,82 @@
-import { ArrowRight } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Building2, CalendarCheck, HardHat, MessageCircle, Phone } from 'lucide-react';
+import { contacto } from '../datos';
+
+const claves = [
+  { Icono: CalendarCheck, texto: 'En obra desde 2017' },
+  { Icono: HardHat, texto: 'Diseño, construcción y mantención' },
+  { Icono: Building2, texto: 'Hogares, empresas y colegios' },
+];
 
 export function Hero() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <ImageWithFallback
-          src="https://images.unsplash.com/photo-1774600166818-e554a4d4c376?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwzfHxjb25zdHJ1Y3Rpb24lMjB0ZWFtJTIwd29ya2Vyc3xlbnwxfHx8fDE3NzY1OTgxMjF8MA&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Construcción moderna"
-          className="w-full h-full object-cover"
+    <section id="inicio">
+      <div className="relative flex min-h-[100svh] items-end overflow-hidden bg-grafito text-white lg:items-center">
+        <img
+          src="/images/paletas.webp"
+          alt=""
+          width={1200}
+          height={1600}
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_40%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/60"></div>
-      </div>
+        {/* Velo gris concreto para que el texto se lea sobre la foto */}
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-grafito via-grafito/75 to-grafito/20 lg:bg-gradient-to-r lg:from-grafito/95 lg:via-grafito/70 lg:to-grafito/10"
+          aria-hidden="true"
+        />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-5xl md:text-7xl mb-6 text-white">
-          Construyendo el <span className="text-cyan-400">Futuro</span>
-        </h1>
-        <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto">
-          Soluciones integrales en diseño, construcción y mantenimiento desde 2017
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={() => scrollToSection('contacto')}
-            className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-lg flex items-center justify-center gap-2 transition-all transform hover:scale-105"
-          >
-            Solicitar Cotización
-            <ArrowRight size={20} />
-          </button>
-          <button
-            onClick={() => scrollToSection('galeria')}
-            className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 px-8 py-4 rounded-lg transition-all transform hover:scale-105"
-          >
-            Ver Proyectos
-          </button>
-        </div>
-      </div>
+        <div className="relative mx-auto w-full max-w-7xl px-5 pt-32 pb-14 sm:px-8 lg:py-36">
+          <div className="max-w-2xl">
+            <h1 className="text-[2.75rem] font-extrabold sm:text-6xl lg:text-7xl">
+              Diseñamos, construimos y mantenemos tus espacios
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-white/90 sm:text-xl">
+              Hogares, oficinas, locales comerciales, condominios y colegios. Un solo equipo a cargo de tu proyecto, de
+              principio a fin.
+            </p>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-cyan-400 rounded-full flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-cyan-400 rounded-full"></div>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a href="#contacto" className="boton boton-cielo">
+                Cotizar proyecto
+              </a>
+              <a href="#proyectos" className="boton boton-claro">
+                Ver proyectos
+              </a>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 font-semibold">
+              <a href={contacto.telefonoHref} className="flex items-center gap-2 hover:text-cielo">
+                <Phone size={19} aria-hidden="true" />
+                {contacto.telefono}
+              </a>
+              <a
+                href={contacto.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-cielo"
+              >
+                <MessageCircle size={19} aria-hidden="true" />
+                Escribir por WhatsApp
+              </a>
+            </div>
           </div>
         </div>
+
+        <p className="absolute right-5 bottom-4 hidden text-sm text-white/75 sm:right-8 lg:block">
+          Terrazas de Paletas, remodeladas por C-MVT
+        </p>
+      </div>
+
+      {/* Franja cyan cielo con lo esencial de la empresa */}
+      <div className="bg-cielo">
+        <ul className="mx-auto grid max-w-7xl gap-5 px-5 py-7 sm:px-8 md:grid-cols-3 md:gap-8">
+          {claves.map(({ Icono, texto }) => (
+            <li key={texto} className="flex items-center gap-4">
+              <Icono size={30} strokeWidth={1.75} aria-hidden="true" className="shrink-0" />
+              <span className="font-titulo text-xl font-bold">{texto}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

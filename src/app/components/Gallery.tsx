@@ -1,83 +1,135 @@
+import { Expand, X } from 'lucide-react';
+import { useRef, useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
+type Proyecto = {
+  imagen: string;
+  titulo: string;
+  tipo: string;
+  descripcion: string;
+  // Columnas que ocupa en escritorio y altura de la foto
+  columnas: string;
+  alto: string;
+};
+
+const proyectos: Proyecto[] = [
+  {
+    imagen: '/images/happyland.webp',
+    titulo: 'Local Happyland',
+    tipo: 'Comercial',
+    descripcion: 'Remodelación y habilitación de local retail en San Bernardo.',
+    // En tablet ocupa todo el ancho para que las cinco fotos queden parejas
+    columnas: 'sm:col-span-2 lg:col-span-7',
+    alto: 'sm:aspect-[16/9] lg:h-[30rem]',
+  },
+  {
+    imagen: '/images/fournil.webp',
+    titulo: 'Local Le Fournil',
+    tipo: 'Comercial',
+    descripcion: 'Remodelación general del local en Mall Plaza.',
+    columnas: 'lg:col-span-5',
+    alto: 'lg:h-[30rem]',
+  },
+  {
+    imagen: '/images/paletas.webp',
+    titulo: 'Terrazas de Paletas',
+    tipo: 'Comercial',
+    descripcion: 'Remodelación y habilitación de las terrazas del local.',
+    columnas: 'lg:col-span-4',
+    alto: 'lg:h-[26rem]',
+  },
+  {
+    imagen: '/images/metro2.webp',
+    titulo: 'Local en Metro Vicente Valdés',
+    tipo: 'Comercial',
+    descripcion: 'Construcción del local DGL en la estación Vicente Valdés.',
+    columnas: 'lg:col-span-4',
+    alto: 'lg:h-[26rem]',
+  },
+  {
+    imagen: '/images/remodelacion.webp',
+    titulo: 'Colegio en Lo Abarca',
+    tipo: 'Institucional',
+    descripcion: 'Remodelación general del colegio.',
+    columnas: 'lg:col-span-4',
+    alto: 'lg:h-[26rem]',
+  },
+];
+
 export function Gallery() {
-  const projects = [
-    {
-      image: '/images/Metro2.jpg',
-      title: 'Construccion de Local en Metro',
-      category: 'Comercial',
-      description: 'Construccion de Local DGL en Metro Vicente Valdes'
-    },
-    {
-      image: '/images/Remodelacion.jpg',
-      title: 'Remodelación de Colegio',
-      category: 'Institucional',
-      description: 'Remodelación general de colegio en Lo Abarca'
-    },
-    {
-      image: '/images/Fournil.jpg',
-      title: 'Remodelacion Local Le Fournil',
-      category: 'Comercial',
-      description: 'Remodelacion general en local Le Fournil en Mall Plaza'
-    },
-    {
-      image: '/images/Happyland.jpg',
-      title: 'Remodelacion de Happyland ',
-      category: 'Comercial',
-      description: 'Remodelacion y Habilitación Local Retail Happyland en San Bernardo'
-    },
-    {
-      image: '/images/Paletas.jpg',
-      title: 'Habilitación de Paletas',
-      category: 'Comercial',
-      description: 'Remodelación y habilitación de Terrazas en Local Paletas'
-    },
-    {
-      image: '/images/Pisos.jpg',
-      title: 'Mantención de Techumbre',
-      category: 'Residencial',
-      description: 'Construcción y Mantencion de Techumbre en casas de Cajon del Maipo'
-    }
-  ];
+  const dialogo = useRef<HTMLDialogElement>(null);
+  const [activo, setActivo] = useState<Proyecto | null>(null);
+
+  const abrir = (p: Proyecto) => {
+    setActivo(p);
+    dialogo.current?.showModal();
+  };
+  const cerrar = () => dialogo.current?.close();
 
   return (
-    <section id="galeria" className="py-20 bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl mb-4 text-white">
-            Nuestra <span className="text-cyan-400">Galería</span>
-          </h2>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            Explora algunos de nuestros proyectos más destacados
+    <section id="proyectos" className="bg-grafito text-white">
+      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
+          <h2 className="text-4xl sm:text-5xl">Obras realizadas</h2>
+          <p className="max-w-lg text-lg text-concreto-medio">
+            Algunos de los proyectos que hemos entregado en locales comerciales y colegios. Toca una foto para verla
+            completa.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden rounded-xl bg-slate-800 hover:transform hover:scale-105 transition-all duration-300"
-            >
-              <div className="aspect-[4/3] overflow-hidden">
+        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-12">
+          {proyectos.map((p) => (
+            <li key={p.titulo} className={p.columnas}>
+              <button
+                type="button"
+                onClick={() => abrir(p)}
+                className={`group relative block aspect-[4/3] w-full overflow-hidden rounded-lg bg-black text-left ${p.alto} lg:aspect-auto`}
+                aria-label={`Ampliar foto: ${p.titulo}`}
+              >
                 <ImageWithFallback
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  src={p.imagen}
+                  alt=""
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none"
                 />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="inline-block bg-cyan-500 text-white text-xs px-3 py-1 rounded-full mb-2">
-                    {project.category}
-                  </div>
-                  <h3 className="text-xl text-white mb-2">{project.title}</h3>
-                  <p className="text-slate-300 text-sm">{project.description}</p>
-                </div>
-              </div>
-            </div>
+                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent p-5 pt-16 sm:p-6 sm:pt-20">
+                  <span className="inline-block rounded-full bg-cielo px-3 py-0.5 text-sm font-semibold text-grafito">
+                    {p.tipo}
+                  </span>
+                  <span className="mt-2 block font-titulo text-2xl font-bold">{p.titulo}</span>
+                  <span className="mt-1 block text-[0.975rem] text-white/85">{p.descripcion}</span>
+                </span>
+                <span className="absolute top-4 right-4 grid size-10 place-items-center rounded-full bg-white/90 text-grafito opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                  <Expand size={18} aria-hidden="true" />
+                </span>
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
+
+      <dialog
+        ref={dialogo}
+        onClick={(e) => e.target === e.currentTarget && cerrar()}
+        onClose={() => setActivo(null)}
+        className="m-auto max-h-[92vh] w-[min(64rem,92vw)] overflow-hidden rounded-lg bg-fondo p-0 text-grafito backdrop:bg-grafito/90"
+        aria-label={activo?.titulo}
+      >
+        {activo && (
+          <figure className="flex max-h-[92vh] flex-col">
+            <img src={activo.imagen} alt={activo.titulo} className="min-h-0 flex-1 bg-black object-contain" />
+            <figcaption className="flex items-start justify-between gap-6 p-5">
+              <div>
+                <p className="font-titulo text-2xl font-bold">{activo.titulo}</p>
+                <p className="mt-1 text-gris">{activo.descripcion}</p>
+              </div>
+              <button type="button" onClick={cerrar} className="-m-2 p-2" aria-label="Cerrar">
+                <X size={26} />
+              </button>
+            </figcaption>
+          </figure>
+        )}
+      </dialog>
     </section>
   );
 }
