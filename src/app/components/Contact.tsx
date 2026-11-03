@@ -9,7 +9,7 @@ const medios = [
 
 export function Contact() {
   return (
-    <section id="contacto" className="bg-concreto px-4 pb-16 sm:px-8 lg:pb-24">
+    <section id="contacto" className="bg-concreto px-4 py-16 sm:px-8 lg:py-24">
       {/* Recuadro con bordes redondeados y fondo blanco suave, más descansado para la vista que el blanco puro */}
       <div className="mx-auto grid max-w-7xl gap-10 rounded-2xl border-t-4 border-cielo bg-hueso px-5 py-14 shadow-[0_20px_50px_-30px_rgb(43_49_53/0.35)] sm:px-10 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-10 lg:px-14 lg:py-20">
         <div className="lg:col-span-5 lg:row-start-1">

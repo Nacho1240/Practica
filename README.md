@@ -13,7 +13,6 @@ Es una página única (*single page*) con navegación por secciones:
 | Servicios | `Services.tsx` | Oficinas y retail, hogares y condominios, centros educativos, diseño y mantención |
 | Proyectos | `Gallery.tsx` | Obras realizadas (Happyland, Paletas, Metro Vicente Valdés, entre otras), con vista ampliada de cada foto |
 | Clientes | `Clients.tsx` | Logos de empresas clientes |
-| Testimonios | `Testimonials.tsx` | Opiniones de clientes |
 | Contacto | `Contact.tsx` | Teléfono, WhatsApp, email y horario de atención |
 | Pie de página | `Footer.tsx` | Enlaces rápidos y redes sociales |
 
@@ -29,7 +28,7 @@ Los colores son los de la empresa: **cyan como el cielo, blanco como los camione
 | `cielo-tinta` | `#0369A1` | Textos y enlaces cyan sobre blanco |
 | `fondo` | `#F3F5F6` | Fondo general (en lugar de blanco puro, para no encandilar) |
 | `hueso` | `#F7F8F9` | Tarjetas y recuadros sobre fondo gris |
-| `concreto` | `#E6EAEC` | Secciones alternas (servicios, testimonios, contacto) |
+| `concreto` | `#E6EAEC` | Secciones alternas (servicios y contacto) |
 | `gris` | `#5C656B` | Texto secundario |
 | `grafito` | `#2B3135` | Texto principal, galería y pie de página |
 
