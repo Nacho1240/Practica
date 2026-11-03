@@ -1,6 +1,6 @@
 # C-MVT — Sitio web corporativo
 
-Sitio web de **C-MVT**, empresa chilena de diseño, construcción y mantenimiento fundada en 2017. La página presenta a la empresa, sus servicios, una galería de proyectos realizados, los clientes que han confiado en ella y sus datos de contacto.
+Sitio web de **C-MVT**, empresa chilena de diseño, construcción y mantención fundada en 2017. La página presenta a la empresa, sus servicios, una galería de proyectos realizados, los clientes que han confiado en ella y sus datos de contacto.
 
 ## Contenido del sitio
 
@@ -66,7 +66,9 @@ Los SVG tienen el texto convertido en trazos, así que se ven igual en cualquier
 ├── index.html               # Punto de entrada HTML
 ├── pnpm-workspace.yaml      # Configuración de seguridad de pnpm
 ├── public/
-│   ├── Logo.png             # Logo de la empresa (también usado como favicon)
+│   ├── favicon.svg          # Ícono de la pestaña del navegador
+│   ├── apple-touch-icon.png # Ícono al guardar el sitio en la pantalla del celular
+│   ├── marca/               # Logo e ícono para usar fuera del sitio
 │   ├── images/              # Fotos de proyectos para la galería
 │   └── logos/               # Logos de clientes
 └── src/
@@ -104,7 +106,7 @@ El proyecto usa pnpm en lugar de npm. En `pnpm-workspace.yaml` está configurado
 - **No instalar versiones publicadas hace menos de 24 horas.** La mayoría de los paquetes maliciosos se detectan y retiran en ese plazo.
 - **No ejecutar scripts de instalación de las dependencias** salvo autorización explícita, para que un paquete comprometido no pueda ejecutar código al instalarse.
 
-Además, el sitio usa solo 4 dependencias de producción (`react`, `react-dom`, `lucide-react` y `react-icons`), lo que reduce la superficie de ataque. El archivo `pnpm-lock.yaml` fija las versiones exactas y debe incluirse en cada commit que cambie dependencias.
+Además, el sitio usa solo 6 dependencias de producción (`react`, `react-dom`, `lucide-react`, `react-icons` y los dos paquetes de la tipografía Barlow), lo que reduce la superficie de ataque. El archivo `pnpm-lock.yaml` fija las versiones exactas y debe incluirse en cada commit que cambie dependencias.
 
 ## Cómo editar el contenido
 
@@ -113,8 +115,3 @@ Además, el sitio usa solo 4 dependencias de producción (`react`, `react-dom`, 
 - **Datos de contacto:** `src/app/datos.ts`. Se actualizan solos en la barra, la portada, la sección de contacto y el pie de página.
 - **Servicios y textos de la empresa:** `Services.tsx` y `About.tsx`.
 
-## Contacto
-
-- Email: Felizondo@c-mvt.com
-- Teléfono / WhatsApp: +56 9 4955 7975
-- Instagram: [@constructoracmvt](https://www.instagram.com/constructoracmvt)
